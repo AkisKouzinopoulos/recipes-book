@@ -2,21 +2,35 @@
   "recipes": [
     {
       "id": "1",
-      "recipeName": "Eggs with chips"
+      "title": "Eggs with chips",
+      "description": "Easy and fast fried eggs with chips",
+      "img": "an-image-url",
+      "totalSteps": 4,
+      "difficulty": "Easy",
+      "rating": 4,
+      "steps": [
+        "step one description",
+        "step two description",
+        "step three description",
+        "step four description"
+      ]
     },
     {
       "id": "2",
-      "recipeName": "Tomato pasta"
-    }
-  ],
-  "recipeDetails": [
-    {
-      "id": "1",
-      "recipeStep1": "Step one"
-    },
-    {
-      "id": "2",
-      "recipeStep1": "Step one"
+      "title": "Tomato pasta",
+      "description": "Tomato pasta",
+      "img": "an-image-url",
+      "totalSteps": 6,
+      "difficulty": "Medium",
+      "rating": 5,
+      "steps": [
+        "step one description",
+        "step two description",
+        "step three description",
+        "step four description",
+        "step five description",
+        "step six description"
+      ]
     }
   ]
 }

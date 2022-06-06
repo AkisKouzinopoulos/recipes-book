@@ -13,8 +13,8 @@ const RecipesBookApiClient = {
 
     return data;
   },
-  getRecipeDetails: async (account) => {
-    const { data } = await axios.get(`/api/recipes/${account}`, {
+  getRecipeDetails: async (id) => {
+    const { data } = await axios.get(`/api/recipes/${id}`, {
       headers: HEADERS,
     });
 
