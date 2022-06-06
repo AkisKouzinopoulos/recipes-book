@@ -1,0 +1,7 @@
+FROM nginxinc/nginx-unprivileged:latest
+
+# copy static content to nginx
+COPY ./storybook-static /usr/share/nginx/html
+
+# copy custom nginx config
+COPY .storybook/nginx-config-storybook/nginx.conf /etc/nginx/conf.d/default.conf

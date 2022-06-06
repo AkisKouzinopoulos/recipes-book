@@ -1,0 +1,41 @@
+:root {
+  --white: #FFF;
+  --black: #000;
+  --darkBlue: #133676;
+  --lightBlue: #2e85d4;
+  --greyBg: #F2F2F2;
+  --lightGreyBg: #f7f7f7;
+  --green: #00AD50;
+  --lightGreen: #48C830;
+  --red: #E02826;
+  --lightRed: #E02826;
+  --borderColor: #707070;
+  --borderLightColor: #e0e1e0;
+  --modalBg: rgb(221 221 221 / 50%);
+
+  /* Font sizes */
+  --fontMainHeading: 20px;
+  --fontSubHeading: 16px;
+  --fontBody: 14px;
+
+  /* Notes Card */
+  --cardWidth: 404px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+}

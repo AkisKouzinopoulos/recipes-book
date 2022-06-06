@@ -1,0 +1,9 @@
+FROM node:16-buster
+
+WORKDIR /fake-server
+
+RUN npm install -g json-server
+
+COPY fake-data/db.json fake-data/routes.json fake-data/server.sh .
+
+CMD [ "./server.sh" ]

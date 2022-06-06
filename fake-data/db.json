@@ -1,0 +1,22 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "recipeName": "Eggs with chips"
+    },
+    {
+      "id": "2",
+      "recipeName": "Tomato pasta"
+    }
+  ],
+  "recipeDetails": [
+    {
+      "id": "1",
+      "recipeStep1": "Step one"
+    },
+    {
+      "id": "2",
+      "recipeStep1": "Step one"
+    }
+  ]
+}
