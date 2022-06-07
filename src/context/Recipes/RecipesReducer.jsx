@@ -18,7 +18,6 @@ export const recipesReducer = (state, action) => {
       console.log('aadd', action.payload);
       return {
         ...state,
-        // recipes: [...state.recipes, action.payload],
         recipes: [...state.recipes, addNewRecipe(action.payload)],
         isLoading: false,
       };
