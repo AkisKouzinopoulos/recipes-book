@@ -1,16 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import RecipesBookApiClient from '../clients/RecipesBookApiClient';
-import { RecipesContext } from '../context/Recipes/RecipesContext';
 import ErrorAlert from '../components/ErrorAlert/ErrorAlert';
+import RecipesList from '../components/RecipesList/RecipesList';
 
 const errorMsg = "Spm error occured"
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-
-  const { dispatch } = useContext(RecipesContext);
-
 
   useEffect(() => {
     RecipesBookApiClient.getRecipes()
@@ -24,7 +21,6 @@ const Home = () => {
         setError(true);
         setIsLoading(false);
       });
-    // dispatch({ type: 'CLEAR_STATE_TERMINALS' });
   }, []);
 
   return (
@@ -34,7 +30,7 @@ const Home = () => {
         <div>Loading...</div>
       )
         :
-        (<div recipes={recipes} />)
+        (<RecipesList recipes={recipes} />)
       }
     </>
   )
