@@ -1,3 +1,5 @@
+import { addNewRecipe } from './RecipesActions';
+
 export const recipesReducer = (state, action) => {
   switch (action.type) {
     case 'GET_RECIPES':
@@ -10,6 +12,14 @@ export const recipesReducer = (state, action) => {
       return {
         ...state,
         recipeDetails: action.payload,
+        isLoading: false,
+      };
+    case 'ADD_RECIPE':
+      console.log('aadd', action.payload);
+      return {
+        ...state,
+        // recipes: [...state.recipes, action.payload],
+        recipes: [...state.recipes, addNewRecipe(action.payload)],
         isLoading: false,
       };
     case 'SET_LOADING':

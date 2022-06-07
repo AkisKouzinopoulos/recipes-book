@@ -17,7 +17,7 @@ const Home = () => {
 
     const getRecipes = async () => {
       const recipesData = await fetchRecipes();
-      dispatch({ type: 'GET_RECIPES', payload: recipesData })
+      dispatch({ type: 'GET_RECIPES', payload: recipesData });
     };
     getRecipes();
   }, [dispatch]);

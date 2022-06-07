@@ -19,3 +19,14 @@ export const fetchRecipeDetails = async (id) => {
 
   return recipeDetailsData;
 };
+
+export const addNewRecipe = async (recipe) => {
+  console.log('action', recipe);
+  const recipeData = await RecipesBookApiClient.addRecipe(recipe)
+    .then(response => response)
+    .catch(() => {
+      // setError(true);
+    });
+
+  return recipeData;
+};

@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Button from '@mui/material/Button';
-
-import RecipesBookApiClient from '../clients/RecipesBookApiClient';
+import { RecipesContext } from '../context/Recipes/RecipesContext';
+import { addNewRecipe } from '../context/Recipes/RecipesActions';
 
 const AddRecipe = () => {
+  // const [recipes, setRecipes] = useState([]);
+
   // const [newRecipe, setNewRecipe] = useState([]);
-  const [recipes, setRecipes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  const { recipes, isLoading, dispatch } = useContext(RecipesContext);
 
   const testRecipe = {
     "title": "Omelete",
@@ -22,31 +24,21 @@ const AddRecipe = () => {
     ]
   }
 
-  useEffect(() => {
-    RecipesBookApiClient.getRecipes()
-      .then(response => {
-        setError(false);
-        setRecipes(response);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setError(true);
-        setIsLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   RecipesBookApiClient.getRecipes()
+  //     .then(response => {
+  //       setError(false);
+  //       setRecipes(response);
+  //       setIsLoading(false);
+  //     })
+  //     .catch(() => {
+  //       setError(true);
+  //       setIsLoading(false);
+  //     });
+  // }, []);
 
   const handleAddRecipe = () => {
-    RecipesBookApiClient.addRecipe(testRecipe)
-      .then(response => {
-        setError(false);
-        // setNewRecipe(response);
-        setRecipes(...recipes, response);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setError(true);
-        setIsLoading(false);
-      });
+    dispatch({ type: 'ADD_RECIPE', payload: testRecipe })
   }
 
   return (

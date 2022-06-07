@@ -4,6 +4,7 @@ import { recipesReducer } from './RecipesReducer';
 const initialState = {
   recipes: [],
   recipeDetails: {},
+  newRecipe: {},
   isLoading: false,
   error: false,
 };
