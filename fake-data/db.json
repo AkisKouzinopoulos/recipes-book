@@ -31,6 +31,19 @@
         "step five description",
         "step six description"
       ]
+    },
+    {
+      "title": "Omelete",
+      "description": "Easy omelete",
+      "img": "an-image-url",
+      "totalSteps": 2,
+      "difficulty": "Easy",
+      "rating": 4,
+      "steps": [
+        "step one description",
+        "step two description"
+      ],
+      "id": "zqiMhF9"
     }
   ]
 }

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Button from '@mui/material/Button';
 import { RecipesContext } from '../context/Recipes/RecipesContext';
+import DynamicStepper from '../components/DynamicStepper/DynamicStepper';
 
 const testRecipe = {
   "title": "Omelete",
@@ -31,6 +32,7 @@ const AddRecipe = () => {
   return (
     <>
       <div>Add Recipe page</div>
+      <DynamicStepper />
       <Button onClick={handleAddRecipe}>Add</Button>
     </>
   )
