@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import RecipesBookApiClient from '../clients/RecipesBookApiClient';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import ErrorAlert from '../components/ErrorAlert/ErrorAlert';
 import RecipesList from '../components/RecipesList/RecipesList';
+import { RecipesContext } from '../context/Recipes/RecipesContext';
+import { fetchRecipes } from '../context/Recipes/RecipesActions';
 
-const errorMsg = "Spm error occured"
+const errorMsg = "Some error occured";
+
 const Home = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
+  const { recipes, isLoading, dispatch } = useContext(RecipesContext);
+
   useEffect(() => {
-    RecipesBookApiClient.getRecipes()
-      .then(response => {
-        console.log('re', response);
-        setError(false);
-        setRecipes(response);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setError(true);
-        setIsLoading(false);
-      });
-  }, []);
+    dispatch({ type: 'SET_LOADING' });
+
+    const getRecipes = async () => {
+      const recipesData = await fetchRecipes();
+      dispatch({ type: 'GET_RECIPES', payload: recipesData })
+    };
+    getRecipes();
+  }, [dispatch]);
 
   return (
     <>
@@ -32,6 +31,9 @@ const Home = () => {
         :
         (<RecipesList recipes={recipes} />)
       }
+      <Link to="/new-recipe/">
+        <div>Add a new recipe</div>
+      </Link>
     </>
   )
 };

@@ -38,7 +38,7 @@
     "prettier": "prettier --write 'src/**/*.{js,jsx}'",
     "prettier:check": "prettier --check 'src/**/*.{js,jsx}'",
     "prepare": "husky install",
-    "fake-server": "json-server --id account --watch fake-data/db.json --routes fake-data/routes.json --port 3001",
+    "fake-server": "json-server --id id --watch fake-data/db.json --routes fake-data/routes.json --port 3001",
     "dev-server": "concurrently \"yarn start\" \"yarn fake-server\"",
     "dev-storybook": "concurrently \"yarn start\" \"yarn fake-server\" \"yarn storybook\""
   },
