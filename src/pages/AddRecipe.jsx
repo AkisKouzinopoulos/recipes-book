@@ -23,7 +23,9 @@ const AddRecipe = () => {
 
   const { dispatch } = useContext(RecipesContext);
 
-
+  const getTheSteps = (steps) => {
+    console.log('ss', steps);
+  }
 
   const handleAddRecipe = () => {
     dispatch({ type: 'ADD_RECIPE', payload: testRecipe });

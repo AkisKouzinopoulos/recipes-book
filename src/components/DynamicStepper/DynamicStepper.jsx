@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 // import { withStyles } from '@mui/material/styles';
 import styled from '@emotion/styled';
@@ -15,21 +15,40 @@ import Typography from '@mui/material/Typography';
 import Add from '@mui/icons-material/AddCircle';
 import Delete from '@mui/icons-material/Delete';
 
+import { RecipesContext } from '../../context/Recipes/RecipesContext';
+
 const DynamicStepper = () => {
 
   const [steps, setSteps] = useState([{ title: null, value: null }]);
   const [activeStep, setActiveStep] = useState();
 
-  const addStep = () => {
+  const { dispatch } = useContext(RecipesContext);
+
+  const addStep = (n = 1) => {
     const newSteps = steps;
-    newSteps.push({ title: null, value: null });
+    // newSteps.push({ title: null, value: '' });
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < n; i++) {
+      newSteps.push({ title: null, value: null });
+    }
     setSteps(newSteps);
     setActiveStep(newSteps.length - 1);
+    console.log('ss', steps);
+    dispatch({ type: 'ADD_RECIPE_STEP', payload: { title: 'test title', value: 'value for test' } });
   }
 
   const removeStep = (ind) => {
     if (steps.length < ind + 1) { return; }
     setSteps(steps.filter((item, i) => i !== ind));
+    // dispatch({ type: 'REMOVE_RECIPE_STEP', payload: steps })
+  }
+
+  const changeStepValue = (index, value) => {
+    steps[index].value = value;
+    // const option = stepOptions.find((item) => item.value === value);
+    // steps[ind].title = option ? option.label : 'Undefined';
+    setSteps(steps);
+    setActiveStep(steps.length);
   }
 
   return (
@@ -53,7 +72,9 @@ const DynamicStepper = () => {
                 <TextField
                   label="Step description"
                   id="outlined-size-small"
-                  defaultValue={`description step: ${index + 1}`}
+                  // defaultValue={`description step: ${index + 1}`}
+                  value={steps[index].value}
+                  onChange={(evt) => changeStepValue(index, evt.target.value)}
                   size="small"
                 />
               </FormControl>

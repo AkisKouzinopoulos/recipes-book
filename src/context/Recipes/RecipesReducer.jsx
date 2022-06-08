@@ -15,11 +15,15 @@ export const recipesReducer = (state, action) => {
         isLoading: false,
       };
     case 'ADD_RECIPE':
-      console.log('aadd', action.payload);
       return {
         ...state,
         recipes: [...state.recipes, addNewRecipe(action.payload)],
         isLoading: false,
+      };
+    case 'ADD_RECIPE_STEP':
+      return {
+        ...state,
+        recipeSteps: [...state.recipeSteps, action.payload],
       };
     case 'SET_LOADING':
       return {
