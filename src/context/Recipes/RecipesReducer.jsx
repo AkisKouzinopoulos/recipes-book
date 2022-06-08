@@ -21,11 +21,14 @@ export const recipesReducer = (state, action) => {
         isLoading: false,
       };
     case 'UPDATE_NEW_RECIPE':
-      // console.log('new', state.newRecipe);
-      console.log('payload', action.payload);
       return {
         ...state,
         newRecipe: { ...state.newRecipe, ...action.payload },
+      };
+    case 'CLEAR_NEW_RECIPE':
+      return {
+        ...state,
+        newRecipe: {},
       };
     case 'SET_LOADING':
       return {
