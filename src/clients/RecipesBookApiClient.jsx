@@ -23,7 +23,6 @@ const RecipesBookApiClient = {
     return filteredData;
   },
   addRecipe: async (recipe) => {
-    console.log('activated', recipe);
     const { data } = await axios.post(`/recipes`, recipe, {
       method: 'POST',
       headers: HEADERS,

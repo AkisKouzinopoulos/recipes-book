@@ -5,7 +5,6 @@ const initialState = {
   recipes: [],
   recipeDetails: {},
   newRecipe: {},
-  recipeSteps: [],
   isLoading: false,
   error: false,
 };

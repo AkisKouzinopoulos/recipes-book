@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Button from '@mui/material/Button';
 import { RecipesContext } from '../context/Recipes/RecipesContext';
-import DynamicStepper from '../components/DynamicStepper/DynamicStepper';
+import RecipeStepper from '../components/RecipeStepper/RecipeStepper';
 
 const testRecipe = {
   "title": "Omelete",
@@ -10,6 +10,16 @@ const testRecipe = {
   "totalSteps": 2,
   "difficulty": "Easy",
   "rating": 4,
+  "ingredients": [
+    {
+      "ingredient": "eggs",
+      "quantity": "x 2"
+    },
+    {
+      "ingredient": "more eggs",
+      "quantity": "x 4"
+    }
+  ],
   "steps": [
     "step one description",
     "step two description"
@@ -23,18 +33,14 @@ const AddRecipe = () => {
 
   const { dispatch } = useContext(RecipesContext);
 
-  const getTheSteps = (steps) => {
-    console.log('ss', steps);
-  }
-
   const handleAddRecipe = () => {
-    dispatch({ type: 'ADD_RECIPE', payload: testRecipe });
+    dispatch({ type: 'ADD_RECIPE' });
   }
 
   return (
     <>
       <div>Add Recipe page</div>
-      <DynamicStepper />
+      <RecipeStepper />
       <Button onClick={handleAddRecipe}>Add</Button>
     </>
   )

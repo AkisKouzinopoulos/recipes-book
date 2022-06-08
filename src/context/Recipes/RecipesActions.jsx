@@ -21,7 +21,6 @@ export const fetchRecipeDetails = async (id) => {
 };
 
 export const addNewRecipe = async (recipe) => {
-  console.log('action', recipe);
   const recipeData = await RecipesBookApiClient.addRecipe(recipe)
     .then(response => response)
     .catch(() => {

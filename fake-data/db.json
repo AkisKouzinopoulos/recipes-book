@@ -8,6 +8,16 @@
       "totalSteps": 4,
       "difficulty": "Easy",
       "rating": 4,
+      "ingredients": [
+        {
+          "ingredient": "eggs",
+          "quantity": "x 2"
+        },
+        {
+          "ingredient": "potatoes",
+          "quantity": "x 4"
+        }
+      ],
       "steps": [
         "step one description",
         "step two description",
@@ -23,6 +33,16 @@
       "totalSteps": 6,
       "difficulty": "Medium",
       "rating": 5,
+      "ingredients": [
+        {
+          "ingredient": "eggs",
+          "quantity": "x 2"
+        },
+        {
+          "ingredient": "pasta",
+          "quantity": "150gr"
+        }
+      ],
       "steps": [
         "step one description",
         "step two description",
