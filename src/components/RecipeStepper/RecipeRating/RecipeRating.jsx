@@ -30,7 +30,7 @@ const RecipeRating = () => {
   return (
     <Box
       sx={{
-        '& > legend': { mt: 2 },
+        '& > legend': { mt: 0.5 },
       }}
     >
       <Typography component="legend">Rate:</Typography>

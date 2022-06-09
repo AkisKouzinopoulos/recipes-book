@@ -1,84 +1,115 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useContext } from 'react';
-import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
 const RecipeOverviewStep = () => {
-  const [ingedients, setIngedients] = useState([{ ingredient: "", quantity: "" }])
+  const [ingredients, setIngredients] = useState([{ ingredient: "", quantity: "", unit: "" }])
 
   const { dispatch } = useContext(RecipesContext);
 
   const handleChange = (i, e) => {
-    const newIngredients = [...ingedients];
+    const newIngredients = [...ingredients];
     newIngredients[i][e.target.name] = e.target.value;
-    setIngedients(newIngredients);
+    setIngredients(newIngredients);
   }
 
   const onBlurHandle = () => {
     dispatch({
       type: 'UPDATE_NEW_RECIPE', payload: {
-        ingedients
+        ingredients
       }
     });
   }
 
   const addFormFields = () => {
-    setIngedients([...ingedients, { ingredient: "", quantity: "" }])
+    setIngredients([...ingredients, { ingredient: "", quantity: "", unit: "" }])
   }
 
   const removeFormFields = (i) => {
-    const newIngredients = [...ingedients];
+    const newIngredients = [...ingredients];
     newIngredients.splice(i, 1);
-    setIngedients(newIngredients)
+    setIngredients(newIngredients)
   }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   alert(JSON.stringify(ingedients));
-  // }
-
   return (
-    <Box
-      // onSubmit={handleSubmit}
-      component="form"
-      noValidate
-      autoComplete="off"
-    >
-      {ingedients.map((element, index) => (
+    <>
+      {ingredients.map((element, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <div className="form-inline" key={index}>
-          <TextField
-            id="ingredient-input"
-            label="Ingredient"
-            name="ingredient"
-            value={element.ingredient || ""}
-            onChange={e => handleChange(index, e)}
-            onBlur={onBlurHandle}
-          />
-          <TextField
-            id="quantity-input"
-            label="Quantity"
-            name="quantity"
-            value={element.quantity || ""}
-            onChange={e => handleChange(index, e)}
-            onBlur={onBlurHandle}
-          />
-          {
-            index ?
-              <IconButton aria-label="delete" size="small" onClick={() => removeFormFields(index)} >
-                <DeleteIcon fontSize="inherit" />
-              </IconButton>
-              : null
-          }
-        </div>
+        <Grid key={index}
+          container
+          item
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+          sx={{ marginBottom: '15px' }}
+        >
+          <Grid item xs={4} >
+            <TextField
+              id="ingredient-input"
+              label="Ingredient"
+              name="ingredient"
+              value={element.ingredient || ''}
+              onChange={e => handleChange(index, e)}
+              onBlur={onBlurHandle}
+            />
+          </Grid>
+          <Grid item xs={4} >
+            <TextField
+              id="quantity-input"
+              label="Quantity"
+              name="quantity"
+              value={element.quantity || ''}
+              onChange={e => handleChange(index, e)}
+              onBlur={onBlurHandle}
+            />
+          </Grid>
+          <Grid item xs={3} >
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Unit</InputLabel>
+              <Select
+                labelId="unit-input-select-label"
+                id="unit-input"
+                name="unit"
+                value={element.unit || ''}
+                label="Unit"
+                onChange={e => handleChange(index, e)}
+                onBlur={onBlurHandle}
+              >
+                <MenuItem value="k">kilos</MenuItem>
+                <MenuItem value="gr">gr</MenuItem>
+                <MenuItem value="oz">oz</MenuItem>
+                <MenuItem value="tsp">tsp</MenuItem>
+                <MenuItem value="Tbsp">Tbsp</MenuItem>
+                <MenuItem value="cups">cups</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={1}>
+            <div>
+              {
+                index ?
+                  <IconButton aria-label="delete" size="medium" onClick={() => removeFormFields(index)} >
+                    <DeleteIcon fontSize="inherit" />
+                  </IconButton>
+                  : null
+              }
+            </div>
+          </Grid>
+
+        </Grid>
       ))}
       <Button variant="outlined" onClick={() => addFormFields()}>Add ingredient</Button>
-      {/* <Button variant="contained">Submit</Button> */}
-    </Box>
+    </>
   )
 };
 

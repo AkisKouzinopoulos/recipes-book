@@ -66,6 +66,10 @@ export const RecipeIngredients = styled(Grid)`
   color: #2a2a2a;
 `;
 
+export const IngredientsListHeading = styled(Typography)`
+  margin-bottom: 6px;
+`;
+
 export const RecipeIngredientsList = styled(Typography)`
   margin: 0;
   padding: 0;

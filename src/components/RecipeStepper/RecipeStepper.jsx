@@ -10,9 +10,16 @@ import RecipeOverviewStep from './RecipeOverviewStep/RecipeOverviewStep';
 import RecipeIngredientsStep from './RecipeIngredientsStep/RecipeIngredientsStep';
 import RecipeImplementationStep from './RecipeImplementationStep/RecipeImplementationStep';
 
+export const AccordionSx = {
+  margin: '15px 0',
+  '&:before': {
+    'backgroundColor': 'transparent'
+  }
+};
+
 const RecipeStepper = () => (
   <div>
-    <Accordion>
+    <Accordion square sx={AccordionSx} elevation={0}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
@@ -24,7 +31,7 @@ const RecipeStepper = () => (
         <RecipeOverviewStep />
       </AccordionDetails>
     </Accordion>
-    <Accordion>
+    <Accordion square sx={AccordionSx} elevation={0}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel2a-content"
@@ -36,7 +43,7 @@ const RecipeStepper = () => (
         <RecipeIngredientsStep />
       </AccordionDetails>
     </Accordion>
-    <Accordion>
+    <Accordion square sx={AccordionSx} elevation={0}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel2a-content"

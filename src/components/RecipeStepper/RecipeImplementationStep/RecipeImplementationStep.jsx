@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useContext } from 'react';
-import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -35,34 +35,30 @@ const RecipeImplementationStep = () => {
   }
 
   return (
-    <Box
-      component="form"
-      noValidate
-      autoComplete="off"
-    >
+    <>
       {steps.map((element, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <div className="form-inline" key={index}>
+        <Stack direction="row" spacing={2} key={index} alignItems="center" sx={{ margin: '15px 0' }}>
           <TextField
             fullWidth
             id="step-input"
-            label="Step"
+            label={`Step ${index + 1}`}
             name="step"
-            value={element || ""}
+            value={element || ''}
             onChange={e => handleChange(index, e)}
             onBlur={onBlurHandle}
           />
           {
             index ?
-              <IconButton aria-label="delete" size="small" onClick={() => removeFormFields(index)} >
+              <IconButton aria-label="delete" size="medium" onClick={() => removeFormFields(index)} >
                 <DeleteIcon fontSize="inherit" />
               </IconButton>
               : null
           }
-        </div>
+        </Stack>
       ))}
       <Button variant="outlined" onClick={() => addFormFields()}>Add step</Button>
-    </Box>
+    </>
   )
 };
 

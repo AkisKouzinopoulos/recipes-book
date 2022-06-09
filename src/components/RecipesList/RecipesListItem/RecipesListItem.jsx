@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import IngredientsList from '../../IngredientsList/IngredientsList';
 
 import { RecipeContainer, RecipeOverview, DifficultyLabel, RecipeMadeInSteps, RecipeDescription, RecipeReadMore, RecipeImgContainer, RecipeIngredients, RecipeIngredientsList } from './RecipesListItem.styles';
 
 const RecipesListItem = ({ recipe }) => {
-  const { title, description, totalSteps, difficulty } = recipe;
+  const { title, description, totalSteps, difficulty, ingredients } = recipe;
 
   return (
     <Grid item xs={12} >
@@ -21,6 +22,7 @@ const RecipesListItem = ({ recipe }) => {
               <img src="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format" srcSet="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format&amp;dpr=2 2x" alt="Sea star" loading="lazy" className="MuiImageListItem-img" />
             </RecipeImgContainer>
             <RecipeOverview xs={5}
+              item
               container
               direction="column"
               justifyContent="center"
@@ -31,9 +33,6 @@ const RecipesListItem = ({ recipe }) => {
               <RecipeMadeInSteps variant="h4">CREATE IN <span>{totalSteps}</span> STEPS</RecipeMadeInSteps>
               <RecipeDescription variant="body1"
                 sx={{
-                  // overflow: 'hidden',
-                  // textOverflow: 'ellipsis',
-                  // display: '-webkit-box',
                   WebkitLineClamp: '3',
                   WebkitBoxOrient: 'vertical',
                 }}>{description}</RecipeDescription>
@@ -41,16 +40,12 @@ const RecipesListItem = ({ recipe }) => {
             </RecipeOverview>
             <RecipeIngredients xs={3}
               container
+              item
               direction="column"
               justifyContent="center"
               alignItems="flex-start"
             >
-              <Typography variant="h3">INGREDIENTS</Typography>
-              <RecipeIngredientsList>
-                <li>1/2 cup sour cream</li>
-                <li>2 Tbsp lemon juice</li>
-                <li>1/2 tsp dried dill</li>
-              </RecipeIngredientsList>
+              <IngredientsList ingredients={ingredients} />
             </RecipeIngredients>
             <Grid item xs={1}>
               Veg, Ht

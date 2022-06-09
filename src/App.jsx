@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import { ThemeProvider } from '@mui/material/styles';
 import styled from '@emotion/styled';
 import { RECIPES_LIST_PAGE, RECIPE_PAGE, ADD_RECIPE_PAGE } from './pages/Paths';
@@ -32,13 +31,11 @@ const App = () => (
       <ThemeProvider theme={theme}>
         <MainContainer maxWidth="lg">
           <AppHeader />
-          <Grid container maxWidth="lg">
-            <Routes>
-              <Route path={RECIPES_LIST_PAGE} element={<Home />} />
-              <Route path={`${RECIPE_PAGE}:id`} element={<Recipe />} />
-              <Route path={ADD_RECIPE_PAGE} element={<AddRecipe />} />
-            </Routes>
-          </Grid>
+          <Routes>
+            <Route path={RECIPES_LIST_PAGE} element={<Home />} />
+            <Route path={`${RECIPE_PAGE}:id`} element={<Recipe />} />
+            <Route path={ADD_RECIPE_PAGE} element={<AddRecipe />} />
+          </Routes>
         </MainContainer>
       </ThemeProvider>
     </RecipesProvider>

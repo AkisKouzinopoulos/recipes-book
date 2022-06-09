@@ -10,12 +10,24 @@
       "rating": 4,
       "ingredients": [
         {
-          "ingredient": "eggs",
-          "quantity": "x 2"
+          "ingredient": "sour cream",
+          "quantity": "1/2",
+          "unit": "cup"
         },
         {
-          "ingredient": "potatoes",
-          "quantity": "x 4"
+          "ingredient": "lemon juice",
+          "quantity": "2 Tbsp",
+          "unit": "Tbsp"
+        },
+        {
+          "ingredient": "dried dill",
+          "quantity": "1/2",
+          "unit": "tsp"
+        },
+        {
+          "ingredient": "sugar",
+          "quantity": "1",
+          "unit": "tsp"
         }
       ],
       "steps": [
@@ -36,11 +48,13 @@
       "ingredients": [
         {
           "ingredient": "eggs",
-          "quantity": "x 2"
+          "quantity": "2",
+          "unit": "x"
         },
         {
           "ingredient": "pasta",
-          "quantity": "150gr"
+          "quantity": "150",
+          "unit": "gr"
         }
       ],
       "steps": [
@@ -51,6 +65,51 @@
         "step five description",
         "step six description"
       ]
+    },
+    {
+      "ingredients": [
+        {
+          "ingredient": "lemos",
+          "quantity": "6",
+          "unit": "gr",
+          "undefined": "k"
+        },
+        {
+          "ingredient": "or",
+          "quantity": "4",
+          "unit": "tbsp"
+        }
+      ],
+      "title": "orange",
+      "description": "",
+      "difficulty": "",
+      "id": "ysBwzGP"
+    },
+    {
+      "title": "Orange pie",
+      "description": "",
+      "difficulty": "",
+      "ingredients": [
+        {
+          "ingredient": "oranges",
+          "quantity": "12",
+          "unit": "Tbsp"
+        }
+      ],
+      "id": "hK-LBGL"
+    },
+    {
+      "title": "Lem",
+      "description": "",
+      "difficulty": "",
+      "ingredients": [
+        {
+          "ingredient": "Cinam",
+          "quantity": "2",
+          "unit": "Tbsp"
+        }
+      ],
+      "id": "GqJnDCe"
     }
   ]
 }
