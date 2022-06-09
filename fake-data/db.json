@@ -2,8 +2,8 @@
   "recipes": [
     {
       "id": "1",
-      "title": "Eggs with chips",
-      "description": "Easy and fast fried eggs with chips",
+      "title": "LEMON RICOTTA PASTA",
+      "description": "Lemon Ricotta Pasta is light, fresh, and quick to prepare, making it the perfect pasta for weeknight dinners in the summer.",
       "img": "an-image-url",
       "totalSteps": 4,
       "difficulty": "Easy",
@@ -27,8 +27,8 @@
     },
     {
       "id": "2",
-      "title": "Tomato pasta",
-      "description": "Tomato pasta",
+      "title": "CREAMY CUCUMBER SALAD",
+      "description": "This classic summer salad is made with cucumbers, onions, and a simple creamy dressing. The dressing can vary from recipe to recipe, but it’s usually either a sour cream or yogurt base with some sort of acid (lemon juice or vinegar), a little sugar, and dill. It’s simple, fresh, and delicious!",
       "img": "an-image-url",
       "totalSteps": 6,
       "difficulty": "Medium",
