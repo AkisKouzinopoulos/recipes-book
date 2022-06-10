@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 export const RecipeContainer = styled(Paper)`
-  background: #FFF;
+  background: #fff;
   border-radius: 0;
   // max-height: 400px;
   a {
@@ -14,7 +14,7 @@ export const RecipeContainer = styled(Paper)`
 
 export const RecipeOverview = styled(Grid)`
   background: #2a2a2a;
-  color: #FFF;
+  color: #fff;
   padding: 40px 30px;
 `;
 
@@ -25,7 +25,7 @@ export const RecipeImgContainer = styled(Grid)`
 `;
 
 export const DifficultyLabel = styled(Typography)`
-  color: #FFF;
+  color: #fff;
   background: #fbc41b;
   padding: 5px 10px;
   width: fit-content;
@@ -37,14 +37,14 @@ export const RecipeMadeInSteps = styled(Typography)`
   margin: 5px 0;
   span {
     font-weight: 800;
-    color: #EEE;
+    color: #eee;
   }
 `;
 
 export const RecipeDescription = styled(Typography)`
   margin: 15px 0;
   overflow: hidden;
-  textOverflow: ellipsis;
+  textoverflow: ellipsis;
   display: -webkit-box;
 `;
 
@@ -54,15 +54,15 @@ export const RecipeReadMore = styled(Typography)`
   span {
     -webkit-text-stroke: 1.5px #fff;
     -webkit-text-fill-color: #2a2a2a;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 `;
 
 export const RecipeIngredients = styled(Grid)`
   padding: 40px 30px;
-  background: #FBC41B;
+  background: #fbc41b;
   color: #2a2a2a;
 `;
 
@@ -71,15 +71,11 @@ export const IngredientsListHeading = styled(Typography)`
 `;
 
 export const RecipeIngredientsList = styled(Typography)`
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
 
-li {
-  line-height: 26px;
-  font-size: 16px
-}
-`;
-
-export const RecipeInfoIcons = styled(Typography)`
-  opacity: 0.5; 
+  li {
+    line-height: 26px;
+    font-size: 16px;
+  }
 `;
