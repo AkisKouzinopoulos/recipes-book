@@ -10,9 +10,9 @@ export const RecipeContainer = styled('div')`
 `;
 
 export const RecipeDetailsTitle = styled(Typography)`
-  background: red;
+  // background: red;
 `;
 
 export const RecipeDetailsDescription = styled(Typography)`
-  background: grey;
+  // background: grey;
 `;
