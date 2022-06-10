@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 export const RecipeContainer = styled(Paper)`
   background: #FFF;
   border-radius: 0;
-  max-height: 400px;
+  // max-height: 400px;
   a {
     text-decoration: none;
   }
@@ -71,11 +71,15 @@ export const IngredientsListHeading = styled(Typography)`
 `;
 
 export const RecipeIngredientsList = styled(Typography)`
-  margin: 0;
-  padding: 0;
+margin: 0;
+padding: 0;
 
-  li {
-    line-height: 26px;
-    font-size: 16px
-  }
+li {
+  line-height: 26px;
+  font-size: 16px
+}
+`;
+
+export const RecipeInfoIcons = styled(Typography)`
+  opacity: 0.5; 
 `;

@@ -1,8 +1,6 @@
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 
 
@@ -10,13 +8,13 @@ export const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: 0,//  theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
-  border: '2px solid #2a2a2a',
+  boxShadow: '0 0px 0px 2px #2a2a2a inset',
   color: '#2a2a2a',
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.15),
   },
   marginLeft: 0,
-  marginRight: 20,
+  marginRight: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
@@ -63,12 +61,10 @@ export const AppBarStyled = styled(AppBar)`
 
 export const AddNewRecipeBtn = styled(Button)`
   border-radius: 0;
-  border: 2px solid #2a2a2a;
   background: transparent;
-  box-shadow: none;
+  box-shadow: 0 0px 0px 2px #2a2a2a inset;
   color: #FBC41B;
-  font-weight: 600;
-  
+  font-weight: 600;  
 
   &:hover {
     color: #FFF;
