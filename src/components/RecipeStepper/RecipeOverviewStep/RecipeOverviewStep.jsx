@@ -5,37 +5,44 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import RecipeRating from '../RecipeRating/RecipeRating';
+import RecipeRating from '../../RecipeRating/RecipeRating';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
 const RecipeOverviewStep = () => {
   const [recipeTitle, setRecipeTitle] = useState('');
   const [recipeDescription, setRecipeDescription] = useState('');
   const [difficulty, setDifficulty] = useState('');
+  const [prepTime, setPrepTime] = useState('');
 
   const { dispatch } = useContext(RecipesContext);
 
-  const handleTitleChange = (e) => {
+  const handleTitleChange = e => {
     setRecipeTitle(e.target.value);
-  }
+  };
 
-  const handleDescriptionChange = (e) => {
+  const handleDescriptionChange = e => {
     setRecipeDescription(e.target.value);
-  }
+  };
 
-  const handleDifficultyChange = (e) => {
+  const handleDifficultyChange = e => {
     setDifficulty(e.target.value);
-  }
+  };
+
+  const handlePrepTimeChange = e => {
+    setPrepTime(e.target.value);
+  };
 
   const onBlurHandle = () => {
     dispatch({
-      type: 'UPDATE_NEW_RECIPE', payload: {
-        'title': recipeTitle,
-        'description': recipeDescription,
-        difficulty
-      }
+      type: 'UPDATE_NEW_RECIPE',
+      payload: {
+        title: recipeTitle,
+        description: recipeDescription,
+        difficulty,
+        preparationTime: prepTime,
+      },
     });
-  }
+  };
 
   return (
     <Stack direction="column" spacing={2}>
@@ -75,11 +82,17 @@ const RecipeOverviewStep = () => {
             <MenuItem value="expert">Expert</MenuItem>
           </Select>
         </FormControl>
-        <RecipeRating />
+        <RecipeRating readonly={false} />
       </Stack>
-
+      <TextField
+        id="outlined-prep-time"
+        label="Preparation time"
+        value={prepTime}
+        onChange={handlePrepTimeChange}
+        onBlur={onBlurHandle}
+      />
     </Stack>
-  )
+  );
 };
 
 export default RecipeOverviewStep;

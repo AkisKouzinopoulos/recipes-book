@@ -1,6 +1,4 @@
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 
 export const RecipeContainer = styled('div')`
@@ -9,8 +7,20 @@ export const RecipeContainer = styled('div')`
   padding: 15px;
 `;
 
-export const RecipeDetailsTitle = styled(Typography)`
-  // background: red;
+export const StrippedText = styled(Typography)`
+  -webkit-text-stroke: 2px #2a2a2a;
+  -webkit-text-fill-color: #fff;
+  display: inline;
+  clear: none !important;
+`;
+
+export const StrippedTextSmall = styled(StrippedText)`
+  -webkit-text-stroke: 1px #2a2a2a;
+`;
+
+export const RecipeDetailsTitle = styled(StrippedText)`
+  font-size: 30px;
+  font-weight: 700;
 `;
 
 export const RecipeDetailsDescription = styled(Typography)`

@@ -8,6 +8,7 @@
       "totalSteps": 4,
       "difficulty": "Easy",
       "rating": 4,
+      "preparationTime": "30 mins",
       "ingredients": [
         {
           "ingredient": "sour cream",
@@ -45,6 +46,7 @@
       "totalSteps": 6,
       "difficulty": "Medium",
       "rating": 5,
+      "preparationTime": "30 mins",
       "ingredients": [
         {
           "ingredient": "eggs",

@@ -5,7 +5,7 @@ import Rating from '@mui/material/Rating';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Typography from '@mui/material/Typography';
-import { RecipesContext } from '../../../context/Recipes/RecipesContext';
+import { RecipesContext } from '../../context/Recipes/RecipesContext';
 
 const StyledRating = styled(Rating)({
   '& .MuiRating-iconFilled': {
@@ -16,16 +16,17 @@ const StyledRating = styled(Rating)({
   },
 });
 
-const RecipeRating = () => {
+const RecipeRating = ({ readonly, ratingValue, size }) => {
   const [value, setValue] = useState(0);
 
   const { dispatch } = useContext(RecipesContext);
 
   const onBlurHandle = () => {
     dispatch({
-      type: 'UPDATE_NEW_RECIPE', payload: { rating: value }
+      type: 'UPDATE_NEW_RECIPE',
+      payload: { rating: value },
     });
-  }
+  };
 
   return (
     <Box
@@ -33,10 +34,12 @@ const RecipeRating = () => {
         '& > legend': { mt: 0.5 },
       }}
     >
-      <Typography component="legend">Rate:</Typography>
+      <Typography component="legend">{!readonly && 'Rate:'}</Typography>
       <StyledRating
+        size={size}
+        readOnly={readonly}
         name="customized-color"
-        defaultValue={0}
+        value={ratingValue || value}
         getLabelText={() => `${value} Heart${value !== 1 ? 's' : ''}`}
         precision={0.5}
         icon={<FavoriteIcon fontSize="inherit" />}
@@ -47,7 +50,7 @@ const RecipeRating = () => {
         onBlur={onBlurHandle}
       />
     </Box>
-  )
+  );
 };
 
 export default RecipeRating;
