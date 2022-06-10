@@ -38,7 +38,10 @@ export const theme = createTheme({
       fontWeight: 700,
       fontFamily: 'Montserrat',
       letterSpacing: '.1em',
-      lineHeight: 1.2
+      lineHeight: 1.2,
+      '@media (max-width:600px)': {
+        fontSize: 20,
+      }
     },
     h3: {
       fontSize: 18,
@@ -69,6 +72,9 @@ export const theme = createTheme({
     },
     body2: {
       fontSize: 16,
+      '@media (max-width:600px)': {
+        fontSize: 14,
+      }
     },
     caption: {
       fontSize: 14,

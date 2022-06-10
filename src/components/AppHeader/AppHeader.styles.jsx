@@ -52,7 +52,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const AppBarStyled = styled(AppBar)`
   padding: 10px 0;
   background: transparent;
-  box-shadow: 0 2px 0px 0px #2a2a2a inset, 0 -2px 0px 0px #2a2a2a inset;
+  box-shadow: 0px 2px 0px 0px #2a2a2a, 0 -2px 0px 0px #2A2A2B;
 
   & .MuiToolbar-root {
     padding: 0;

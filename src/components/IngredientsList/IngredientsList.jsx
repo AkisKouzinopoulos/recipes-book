@@ -4,7 +4,7 @@ import { RecipeIngredientsList, IngredientsListHeading } from '../RecipesList/Re
 const IngredientsList = ({ ingredients }) => (
   <>
     <IngredientsListHeading variant="h3">INGREDIENTS</IngredientsListHeading>
-    <RecipeIngredientsList>
+    <RecipeIngredientsList varian="body2">
       {/* eslint-disable-next-line react/no-array-index-key */}
       {ingredients.map((item, index) => <li key={index}>{item.quantity} {item.unit} {item.ingredient}</li>)}
     </RecipeIngredientsList>
