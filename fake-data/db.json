@@ -2,20 +2,32 @@
   "recipes": [
     {
       "id": "1",
-      "title": "Eggs with chips",
-      "description": "Easy and fast fried eggs with chips",
+      "title": "LEMON RICOTTA PASTA",
+      "description": "Lemon Ricotta Pasta is light, fresh, and quick to prepare, making it the perfect pasta for weeknight dinners in the summer.",
       "img": "an-image-url",
       "totalSteps": 4,
       "difficulty": "Easy",
       "rating": 4,
       "ingredients": [
         {
-          "ingredient": "eggs",
-          "quantity": "x 2"
+          "ingredient": "sour cream",
+          "quantity": "1/2",
+          "unit": "cup"
         },
         {
-          "ingredient": "potatoes",
-          "quantity": "x 4"
+          "ingredient": "lemon juice",
+          "quantity": "2 Tbsp",
+          "unit": "Tbsp"
+        },
+        {
+          "ingredient": "dried dill",
+          "quantity": "1/2",
+          "unit": "tsp"
+        },
+        {
+          "ingredient": "sugar",
+          "quantity": "1",
+          "unit": "tsp"
         }
       ],
       "steps": [
@@ -27,8 +39,8 @@
     },
     {
       "id": "2",
-      "title": "Tomato pasta",
-      "description": "Tomato pasta",
+      "title": "CREAMY CUCUMBER SALAD",
+      "description": "This classic summer salad is made with cucumbers, onions, and a simple creamy dressing. The dressing can vary from recipe to recipe, but it’s usually either a sour cream or yogurt base with some sort of acid (lemon juice or vinegar), a little sugar, and dill. It’s simple, fresh, and delicious!",
       "img": "an-image-url",
       "totalSteps": 6,
       "difficulty": "Medium",
@@ -36,11 +48,13 @@
       "ingredients": [
         {
           "ingredient": "eggs",
-          "quantity": "x 2"
+          "quantity": "2",
+          "unit": "x"
         },
         {
           "ingredient": "pasta",
-          "quantity": "150gr"
+          "quantity": "150",
+          "unit": "gr"
         }
       ],
       "steps": [
@@ -51,36 +65,6 @@
         "step five description",
         "step six description"
       ]
-    },
-    {
-      "title": "Eg",
-      "description": "",
-      "difficulty": "",
-      "id": "NRRQ2Rl"
-    },
-    {
-      "title": "Juicee",
-      "description": "",
-      "difficulty": "",
-      "id": "zKVlKN4"
-    },
-    {
-      "title": "Pastaa",
-      "description": "",
-      "difficulty": "",
-      "id": "pJfAY2u"
-    },
-    {
-      "title": "Sweeeet",
-      "description": "",
-      "difficulty": "",
-      "id": "7isrhvh"
-    },
-    {
-      "title": "Pastaaaa",
-      "description": "",
-      "difficulty": "",
-      "id": "91JZKzJ"
     }
   ]
 }

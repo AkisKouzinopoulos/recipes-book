@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -38,11 +38,7 @@ const RecipeOverviewStep = () => {
   }
 
   return (
-    <Box
-      component="form"
-      noValidate
-      autoComplete="off"
-    >
+    <Stack direction="column" spacing={2}>
       <TextField
         required
         id="outlined-required"
@@ -60,23 +56,29 @@ const RecipeOverviewStep = () => {
         onChange={handleDescriptionChange}
         onBlur={onBlurHandle}
       />
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Difficulty</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={difficulty}
-          label="Difficulty"
-          onChange={handleDifficultyChange}
-          onBlur={onBlurHandle}
-        >
-          <MenuItem value="easy">Easy</MenuItem>
-          <MenuItem value="medium">Medium</MenuItem>
-          <MenuItem value="expert">Expert</MenuItem>
-        </Select>
-      </FormControl>
-      <RecipeRating />
-    </Box>
+      <Stack direction="row" spacing={3}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Difficulty</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={difficulty}
+            label="Difficulty"
+            onChange={handleDifficultyChange}
+            onBlur={onBlurHandle}
+          >
+            <MenuItem value="easyfast">Easy &amp; fast</MenuItem>
+            <MenuItem value="easy">Easy</MenuItem>
+            <MenuItem value="mediumfast">Medium &amp; fast</MenuItem>
+            <MenuItem value="medium">Medium</MenuItem>
+            <MenuItem value="expertfast">Expert &amp; fast</MenuItem>
+            <MenuItem value="expert">Expert</MenuItem>
+          </Select>
+        </FormControl>
+        <RecipeRating />
+      </Stack>
+
+    </Stack>
   )
 };
 

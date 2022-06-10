@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import ErrorAlert from '../components/ErrorAlert/ErrorAlert';
 import RecipesList from '../components/RecipesList/RecipesList';
 import { RecipesContext } from '../context/Recipes/RecipesContext';
@@ -31,9 +30,6 @@ const Home = () => {
         :
         (<RecipesList recipes={recipes} />)
       }
-      <Link to="/new-recipe/">
-        <div>Add a new recipe</div>
-      </Link>
     </>
   )
 };

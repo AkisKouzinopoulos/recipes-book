@@ -25,21 +25,31 @@ export const theme = createTheme({
     divider: '#707070',
   },
   typography: {
+    fontFamily: [
+      'Montserrat',
+      'serif',
+    ].join(','),
     h1: {
       fontSize: 18,
       fontWeight: 400,
     },
     h2: {
-      fontSize: 16,
+      fontSize: 22,
       fontWeight: 700,
+      fontFamily: 'Montserrat',
+      letterSpacing: '.1em',
+      lineHeight: 1.2,
+      '@media (max-width:600px)': {
+        fontSize: 20,
+      }
     },
     h3: {
-      fontSize: 16,
-      fontWeight: 400,
+      fontSize: 18,
+      fontWeight: 700,
     },
     h4: {
       fontSize: 14,
-      fontWeight: 700,
+      fontWeight: 600,
     },
     h5: {
       fontSize: 14,
@@ -57,10 +67,14 @@ export const theme = createTheme({
       fontWeight: 400,
     },
     body1: {
-      fontSize: 14,
+      fontSize: 18,
+      fontWeight: 500,
     },
     body2: {
       fontSize: 16,
+      '@media (max-width:600px)': {
+        fontSize: 14,
+      }
     },
     caption: {
       fontSize: 14,
