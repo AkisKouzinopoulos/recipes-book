@@ -21,7 +21,7 @@ const AddRecipe = () => {
   }
 
   return (
-    <Grid container spacing={2} alignItems="center">
+    <Grid container spacing={2} alignItems="center" mt={0.1}>
       <Grid item xs={12} sm={6}>
         <RecipeStepper />
       </Grid>
