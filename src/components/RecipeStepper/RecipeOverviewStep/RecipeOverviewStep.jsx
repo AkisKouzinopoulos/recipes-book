@@ -1,10 +1,15 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useContext } from 'react';
 import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 import RecipeRating from '../../RecipeRating/RecipeRating';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
@@ -13,6 +18,8 @@ const RecipeOverviewStep = () => {
   const [recipeDescription, setRecipeDescription] = useState('');
   const [difficulty, setDifficulty] = useState('');
   const [prepTime, setPrepTime] = useState('');
+
+  const [allergens, setAllergens] = useState([]);
 
   const { dispatch } = useContext(RecipesContext);
 
@@ -32,6 +39,19 @@ const RecipeOverviewStep = () => {
     setPrepTime(e.target.value);
   };
 
+  const handleAllergenChange = e => {
+    const newAllergens = [...allergens];
+    const allergenIndex = newAllergens.findIndex(item => item.name === e.target.name);
+
+    if (allergenIndex === -1) {
+      newAllergens.push({ name: e.target.name, checked: true });
+    } else {
+      newAllergens.splice(allergenIndex, 1);
+    }
+
+    setAllergens(newAllergens);
+  };
+
   const onBlurHandle = () => {
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
@@ -40,6 +60,7 @@ const RecipeOverviewStep = () => {
         description: recipeDescription,
         difficulty,
         preparationTime: prepTime,
+        allergens,
       },
     });
   };
@@ -91,6 +112,74 @@ const RecipeOverviewStep = () => {
         onChange={handlePrepTimeChange}
         onBlur={onBlurHandle}
       />
+      <FormGroup>
+        {/* {allergens.map((element, index) => ( */}
+        <Grid
+          container
+          item
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+          sx={{ marginBottom: '15px' }}
+        >
+          <Grid item xs={4}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="fish"
+                  value="fish"
+                  checked={allergens.fish}
+                  onChange={e => handleAllergenChange(e)}
+                  onBlur={onBlurHandle}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                />
+              }
+              label="Fish"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="glouten"
+                  value="glouten"
+                  checked={allergens.glouten}
+                  onChange={e => handleAllergenChange(e)}
+                  onBlur={onBlurHandle}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                />
+              }
+              label="Glouten"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="eggs"
+                  value="eggs"
+                  checked={allergens.eggs}
+                  onChange={e => handleAllergenChange(e)}
+                  onBlur={onBlurHandle}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                />
+              }
+              label="Eggs"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="milk"
+                  value="milk"
+                  checked={allergens.milk}
+                  onChange={e => handleAllergenChange(e)}
+                  onBlur={onBlurHandle}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                />
+              }
+              label="Milk"
+            />
+          </Grid>
+        </Grid>
+        {/* ))} */}
+      </FormGroup>
     </Stack>
   );
 };
