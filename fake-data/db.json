@@ -36,6 +36,20 @@
         "step two description",
         "step three description",
         "step four description"
+      ],
+      "allergens": [
+        {
+          "name": "Celery",
+          "checked": true
+        },
+        {
+          "name": "Fish",
+          "checked": true
+        },
+        {
+          "name": "Eggs",
+          "checked": true
+        }
       ]
     },
     {
@@ -66,6 +80,16 @@
         "step four description",
         "step five description",
         "step six description"
+      ],
+      "allergens": [
+        {
+          "name": "Soya",
+          "checked": true
+        },
+        {
+          "name": "Sesame",
+          "checked": true
+        }
       ]
     }
   ]

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useContext } from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
@@ -6,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import RecipeRating from '../../RecipeRating/RecipeRating';
+import AllergensListStep from '../AllergensListStep/AllergensListStep';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
 const RecipeOverviewStep = () => {
@@ -91,6 +93,7 @@ const RecipeOverviewStep = () => {
         onChange={handlePrepTimeChange}
         onBlur={onBlurHandle}
       />
+      <AllergensListStep />
     </Stack>
   );
 };

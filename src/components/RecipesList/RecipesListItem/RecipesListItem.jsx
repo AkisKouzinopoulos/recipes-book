@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import IngredientsList from '../../IngredientsList/IngredientsList';
+import AllergensList from '../../AllergensList/AllergensList';
 import { RECIPE_PAGE } from '../../../pages/Paths';
 import {
   RecipeContainer,
@@ -16,7 +17,7 @@ import {
 } from './RecipesListItem.styles';
 
 const RecipesListItem = ({ recipe }) => {
-  const { title, description, totalSteps, difficulty, ingredients } = recipe;
+  const { title, description, totalSteps, difficulty, ingredients, allergens } = recipe;
 
   return (
     <Grid item xs={12}>
@@ -65,6 +66,7 @@ const RecipesListItem = ({ recipe }) => {
               <RecipeReadMore variant="body1">
                 READ <span>MORE</span>
               </RecipeReadMore>
+              <AllergensList allergens={allergens} />
             </RecipeOverview>
             <RecipeIngredients
               xs={12}

@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 export const RecipeContainer = styled(Paper)`
   background: #fff;
   border-radius: 0;
-  // max-height: 400px;
   a {
     text-decoration: none;
   }
@@ -50,6 +49,7 @@ export const RecipeDescription = styled(Typography)`
 
 export const RecipeReadMore = styled(Typography)`
   font-size: 24px;
+  border-bottom: 1px solid var(--white);
 
   span {
     -webkit-text-stroke: 1.5px #fff;
