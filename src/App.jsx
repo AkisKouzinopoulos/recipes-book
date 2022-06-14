@@ -10,6 +10,7 @@ import Recipe from './pages/Recipe';
 import AddRecipe from './pages/AddRecipe';
 import AppHeader from './components/AppHeader/AppHeader';
 import { RecipesProvider } from './context/Recipes/RecipesContext';
+import { SearchProvider } from './context/Search/SearchContext';
 
 // Css
 import './App.css';
@@ -27,18 +28,20 @@ const MainContainer = styled(Container)`
 
 const App = () => (
   <Router>
-    <RecipesProvider>
-      <ThemeProvider theme={theme}>
-        <MainContainer maxWidth="lg">
-          <AppHeader />
-          <Routes>
-            <Route path={RECIPES_LIST_PAGE} element={<Home />} />
-            <Route path={`${RECIPE_PAGE}:id`} element={<Recipe />} />
-            <Route path={ADD_RECIPE_PAGE} element={<AddRecipe />} />
-          </Routes>
-        </MainContainer>
-      </ThemeProvider>
-    </RecipesProvider>
+    <SearchProvider>
+      <RecipesProvider>
+        <ThemeProvider theme={theme}>
+          <MainContainer maxWidth="lg">
+            <AppHeader />
+            <Routes>
+              <Route path={RECIPES_LIST_PAGE} element={<Home />} />
+              <Route path={`${RECIPE_PAGE}:id`} element={<Recipe />} />
+              <Route path={ADD_RECIPE_PAGE} element={<AddRecipe />} />
+            </Routes>
+          </MainContainer>
+        </ThemeProvider>
+      </RecipesProvider>
+    </SearchProvider>
   </Router>
 );
 
