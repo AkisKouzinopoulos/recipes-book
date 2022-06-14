@@ -16,8 +16,8 @@ export const AllergenImg = styled('div')`
 
 const AllergensList = ({ allergens }) => (
   <Stack direction="row" flexWrap="wrap" my={2}>
-    {/* eslint-disable-next-line react/no-array-index-key */}
     {allergens?.map((item, index) => (
+      // eslint-disable-next-line react/no-array-index-key
       <div key={index}>
         <AllergenImg url={`../../assets/${item.name}.png`} />
       </div>
