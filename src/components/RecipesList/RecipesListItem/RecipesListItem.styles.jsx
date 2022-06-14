@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 export const RecipeContainer = styled(Paper)`
   background: #fff;
   border-radius: 0;
-  // max-height: 400px;
   a {
     text-decoration: none;
   }
