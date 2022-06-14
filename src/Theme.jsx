@@ -25,10 +25,7 @@ export const theme = createTheme({
     divider: '#707070',
   },
   typography: {
-    fontFamily: [
-      'Montserrat',
-      'serif',
-    ].join(','),
+    fontFamily: ['Montserrat', 'serif'].join(','),
     h1: {
       fontSize: 18,
       fontWeight: 400,
@@ -41,7 +38,7 @@ export const theme = createTheme({
       lineHeight: 1.2,
       '@media (max-width:600px)': {
         fontSize: 20,
-      }
+      },
     },
     h3: {
       fontSize: 18,
@@ -74,11 +71,14 @@ export const theme = createTheme({
       fontSize: 16,
       '@media (max-width:600px)': {
         fontSize: 14,
-      }
+      },
     },
     caption: {
       fontSize: 14,
     },
+  },
+  shape: {
+    borderRadius: 0,
   },
   components: {
     MuiButton: {

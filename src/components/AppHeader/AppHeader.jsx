@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
@@ -19,6 +19,7 @@ import {
 
 const AppHeader = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { updateSearchQuery } = useContext(SearchContext);
 
   const handleClick = () => {
@@ -48,16 +49,18 @@ const AppHeader = () => {
               md={3}
               lg={3}
             >
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  onChange={searchRecipe}
-                  placeholder="Search…"
-                  inputProps={{ 'aria-label': 'search' }}
-                />
-              </Search>
+              {location.pathname !== ADD_RECIPE_PAGE && (
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    onChange={searchRecipe}
+                    placeholder="Search…"
+                    inputProps={{ 'aria-label': 'search' }}
+                  />
+                </Search>
+              )}
             </Grid>
             <Grid
               container

@@ -3,12 +3,11 @@ import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import InputBase from '@mui/material/InputBase';
 
-
 export const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: 0,//  theme.shape.borderRadius,
+  borderRadius: 0, //  theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
-  boxShadow: '0 0px 0px 2px #2a2a2a inset',
+  boxShadow: '0 0 0 2px #2a2a2a inset',
   color: '#2a2a2a',
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -52,7 +51,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const AppBarStyled = styled(AppBar)`
   padding: 10px 0;
   background: transparent;
-  box-shadow: 0px 2px 0px 0px #2a2a2a, 0 -2px 0px 0px #2A2A2B;
+  box-shadow: 0 2px 0 0 #2a2a2a, 0 -2px 0 0 #2a2a2b;
 
   & .MuiToolbar-root {
     padding: 0;
@@ -62,12 +61,13 @@ export const AppBarStyled = styled(AppBar)`
 export const AddNewRecipeBtn = styled(Button)`
   border-radius: 0;
   background: transparent;
-  box-shadow: 0 0px 0px 2px #2a2a2a inset;
-  color: #FBC41B;
-  font-weight: 600;  
+  box-shadow: 0 0 0 2px #2a2a2a inset;
+  color: #fbc41b;
+  font-weight: 600;
 
   &:hover {
-    color: #FFF;
-    background: #FBC41B;
+    color: #fff;
+    background: #fbc41b;
+    box-shadow: 0 0 0 2px #2a2a2a36 inset;
   }
 `;
