@@ -37,7 +37,20 @@
         "step three description",
         "step four description"
       ],
-      "allergens": []
+      "allergens": [
+        {
+          "name": "Celery",
+          "checked": true
+        },
+        {
+          "name": "Crustaceans",
+          "checked": true
+        },
+        {
+          "name": "Eggs",
+          "checked": true
+        }
+      ]
     },
     {
       "id": "2",

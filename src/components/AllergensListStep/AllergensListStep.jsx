@@ -23,7 +23,7 @@ const allergensCheckboxes = [
   'Soya',
 ];
 
-const AllergensList = () => {
+const AllergensListStep = () => {
   const [allergens, setAllergens] = useState([]);
 
   const { dispatch } = useContext(RecipesContext);
@@ -78,4 +78,4 @@ const AllergensList = () => {
   );
 };
 
-export default AllergensList;
+export default AllergensListStep;
