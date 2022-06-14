@@ -43,7 +43,7 @@
           "checked": true
         },
         {
-          "name": "Crustaceans",
+          "name": "Fish",
           "checked": true
         },
         {
@@ -80,6 +80,16 @@
         "step four description",
         "step five description",
         "step six description"
+      ],
+      "allergens": [
+        {
+          "name": "Soya",
+          "checked": true
+        },
+        {
+          "name": "Sesame",
+          "checked": true
+        }
       ]
     }
   ]

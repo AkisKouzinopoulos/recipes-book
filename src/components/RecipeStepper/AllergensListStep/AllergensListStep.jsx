@@ -8,7 +8,7 @@ import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
 const allergensCheckboxes = [
   'Celery',
-  'Cereals containing gluten',
+  'Gluten',
   'Crustaceans',
   'Eggs',
   'Fish',
