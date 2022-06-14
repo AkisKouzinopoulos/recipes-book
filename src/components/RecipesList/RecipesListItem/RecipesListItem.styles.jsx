@@ -1,7 +1,18 @@
 import styled from '@emotion/styled';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom';
+
 import Typography from '@mui/material/Typography';
+
+export const RecipeLink = styled(Link)`
+  color: inherit;
+  transition: all 0.2s ease-in-out;
+
+  :hover {
+    color: #fbc41b;
+  }
+`;
 
 export const RecipeContainer = styled(Paper)`
   background: #fff;
@@ -57,6 +68,13 @@ export const RecipeReadMore = styled(Typography)`
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+  }
+  :hover {
+    border-bottom: 1px solid #fbc41b;
+    span {
+      -webkit-text-stroke: 1.5px #fbc41b;
+      -webkit-text-fill-color: #2a2a2a;
+    }
   }
 `;
 

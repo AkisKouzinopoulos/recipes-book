@@ -14,6 +14,7 @@ import {
   RecipeReadMore,
   RecipeImgContainer,
   RecipeIngredients,
+  RecipeLink,
 } from './RecipesListItem.styles';
 
 const RecipesListItem = ({ recipe }) => {
@@ -28,60 +29,62 @@ const RecipesListItem = ({ recipe }) => {
           p: 0,
         }}
       >
-        <Link to={`${RECIPE_PAGE}${recipe.id}`}>
-          <Grid container spacing={0}>
-            <RecipeImgContainer item xs={12} sm={12} md={3}>
-              <img
-                src="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format"
-                srcSet="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format&amp;dpr=2 2x"
-                alt="Sea star"
-                loading="lazy"
-                className="MuiImageListItem-img"
-              />
-            </RecipeImgContainer>
-            <RecipeOverview
-              xs={12}
-              sm={7}
-              md={6}
-              item
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="flex-start"
-            >
-              <DifficultyLabel variant="h3">{difficulty}</DifficultyLabel>
+        <Grid container spacing={0}>
+          <RecipeImgContainer item xs={12} sm={12} md={3}>
+            <img
+              src="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format"
+              srcSet="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format&amp;dpr=2 2x"
+              alt="Sea star"
+              loading="lazy"
+              className="MuiImageListItem-img"
+            />
+          </RecipeImgContainer>
+          <RecipeOverview
+            xs={12}
+            sm={7}
+            md={6}
+            item
+            container
+            direction="column"
+            justifyContent="center"
+            alignItems="flex-start"
+          >
+            <DifficultyLabel variant="h3">{difficulty}</DifficultyLabel>
+            <RecipeLink to={`${RECIPE_PAGE}${recipe.id}`}>
               <Typography variant="h2">{title}</Typography>
-              <RecipeMadeInSteps variant="h4">
-                CREATE IN <span>{totalSteps}</span> STEPS
-              </RecipeMadeInSteps>
-              <RecipeDescription
-                variant="body1"
-                sx={{
-                  WebkitLineClamp: '3',
-                  WebkitBoxOrient: 'vertical',
-                }}
-              >
-                {description}
-              </RecipeDescription>
-              <RecipeReadMore variant="body1">
-                READ <span>MORE</span>
-              </RecipeReadMore>
-              <AllergensList allergens={allergens} />
-            </RecipeOverview>
-            <RecipeIngredients
-              xs={12}
-              sm={5}
-              md={3}
-              container
-              item
-              direction="column"
-              justifyContent="center"
-              alignItems="flex-start"
+            </RecipeLink>
+            <RecipeMadeInSteps variant="h4">
+              CREATE IN <span>{totalSteps}</span> STEPS
+            </RecipeMadeInSteps>
+            <RecipeDescription
+              variant="body1"
+              sx={{
+                WebkitLineClamp: '3',
+                WebkitBoxOrient: 'vertical',
+              }}
             >
-              <IngredientsList ingredients={ingredients} />
-            </RecipeIngredients>
-          </Grid>
-        </Link>
+              {description}
+            </RecipeDescription>
+            <RecipeReadMore variant="body1">
+              <RecipeLink to={`${RECIPE_PAGE}${recipe.id}`}>
+                READ <span>MORE</span>
+              </RecipeLink>
+            </RecipeReadMore>
+            <AllergensList allergens={allergens} />
+          </RecipeOverview>
+          <RecipeIngredients
+            xs={12}
+            sm={5}
+            md={3}
+            container
+            item
+            direction="column"
+            justifyContent="center"
+            alignItems="flex-start"
+          >
+            <IngredientsList ingredients={ingredients} />
+          </RecipeIngredients>
+        </Grid>
       </RecipeContainer>
     </Grid>
   );
