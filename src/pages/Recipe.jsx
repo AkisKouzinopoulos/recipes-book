@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IngredientsList from '../components/IngredientsList/IngredientsList';
 import RecipeRating from '../components/RecipeRating/RecipeRating';
@@ -10,7 +11,6 @@ import {
   RecipeContainer,
   RecipeDetailsTitle,
   RecipeDetailsDescription,
-  StrippedText,
   StrippedTextSmall,
 } from './Recipe.styles';
 import { DifficultyLabel } from '../components/RecipesList/RecipesListItem/RecipesListItem.styles';
@@ -21,7 +21,7 @@ const Recipe = () => {
   const [error, setError] = useState(false);
 
   const { recipeDetails, isLoading, dispatch } = useContext(RecipesContext);
-  const { title, description, ingredients, steps, rating, difficulty, preparationTime } =
+  const { title, description, imgUrl, ingredients, steps, rating, difficulty, preparationTime } =
     recipeDetails;
 
   useEffect(() => {
@@ -38,11 +38,11 @@ const Recipe = () => {
     <RecipeContainer>
       <Grid container spacing={0}>
         <Grid
-          xs={10}
+          xs={12}
           sm={9}
           md={8}
-          item
           container
+          item
           direction="column"
           justifyContent="start"
           alignItems="flex-start"
@@ -57,26 +57,63 @@ const Recipe = () => {
           </Typography>
         </Grid>
         <Grid
-          xs={2}
+          xs={12}
           sm={3}
           md={4}
-          item
           container
+          item
           direction="column"
           justifyContent="center"
-          alignItems="flex-end"
+          alignItems="center"
+          sx={{ overflow: 'hidden' }}
         >
-          <img
-            src="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format"
-            srcSet="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format&amp;dpr=2 2x"
-            alt="Sea star"
-            loading="lazy"
-            className="MuiImageListItem-img"
-          />
-          <DifficultyLabel variant="h3" mt={1}>
-            {difficulty}
-          </DifficultyLabel>
-          <RecipeRating readonly ratingValue={rating} size="small" />
+          <Grid
+            container
+            item
+            spacing={0}
+            direction="column"
+            justifyContent="center"
+            alignItems={{
+              xs: 'flex-start',
+              sm: 'flex-end',
+            }}
+          >
+            {imgUrl && (
+              <Box
+                fullWidth
+                component="img"
+                sx={{
+                  content: {
+                    xs: `url(${imgUrl}?max-w=390&max-h=200&fit=crop&auto=format})`,
+                    sm: `url(${imgUrl}?max-w=170&max-h=170&fit=crop&auto=format})`,
+                    md: `url(${imgUrl}?max-w=314&max-h=200&fit=crop&auto=format})`,
+                  },
+                }}
+                alt={title}
+              />
+            )}
+            <Grid
+              container
+              direction="column"
+              justifyContent={{
+                xs: 'start',
+                sm: 'center',
+              }}
+              alignItems={{
+                xs: 'start',
+                sm: 'end',
+              }}
+              mb={{
+                xs: 2,
+                sm: 0,
+              }}
+            >
+              <DifficultyLabel variant="h3" mt={1}>
+                {difficulty}
+              </DifficultyLabel>
+              <RecipeRating readonly ratingValue={rating} size="small" />
+            </Grid>
+          </Grid>
         </Grid>
 
         <Grid

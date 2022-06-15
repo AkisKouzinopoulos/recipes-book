@@ -29,9 +29,10 @@ export const RecipeOverview = styled(Grid)`
 `;
 
 export const RecipeImgContainer = styled(Grid)`
-  img {
-    height: 100%;
-  }
+  // img {
+  //   height: 100%;
+  // }
+  overflow: hidden;
 `;
 
 export const DifficultyLabel = styled(Typography)`
