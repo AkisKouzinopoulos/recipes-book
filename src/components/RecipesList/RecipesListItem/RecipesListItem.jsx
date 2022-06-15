@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import styled from '@emotion/styled';
 import IngredientsList from '../../IngredientsList/IngredientsList';
 import AllergensList from '../../AllergensList/AllergensList';
 import { RECIPE_PAGE } from '../../../pages/Paths';
@@ -18,7 +19,7 @@ import {
 } from './RecipesListItem.styles';
 
 const RecipesListItem = ({ recipe }) => {
-  const { title, description, totalSteps, difficulty, ingredients, allergens } = recipe;
+  const { title, imgUrl, description, totalSteps, difficulty, ingredients, allergens } = recipe;
 
   return (
     <Grid item xs={12}>
@@ -30,13 +31,24 @@ const RecipesListItem = ({ recipe }) => {
         }}
       >
         <Grid container spacing={0}>
-          <RecipeImgContainer item xs={12} sm={12} md={3}>
-            <img
-              src="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format"
-              srcSet="https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?w=164&amp;h=164&amp;fit=crop&amp;auto=format&amp;dpr=2 2x"
-              alt="Sea star"
-              loading="lazy"
-              className="MuiImageListItem-img"
+          <RecipeImgContainer
+            container
+            xs={12}
+            sm={12}
+            md={3}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Box
+              component="img"
+              sx={{
+                content: {
+                  xs: `url(${imgUrl}?max-w=425&max-h=200&fit=crop&auto=format})`,
+                  sm: `url(${imgUrl}?max-w=768&max-h=250&fit=crop&auto=format})`,
+                  md: `url(${imgUrl}?max-w=300&max-h=450&fit=crop&auto=format})`,
+                },
+              }}
+              alt={title}
             />
           </RecipeImgContainer>
           <RecipeOverview
