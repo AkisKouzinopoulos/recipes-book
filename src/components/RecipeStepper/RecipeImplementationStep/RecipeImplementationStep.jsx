@@ -41,10 +41,10 @@ const RecipeImplementationStep = () => {
   return (
     <>
       {steps.map((element, index) => (
-        // eslint-disable-next-line react/no-array-index-key
         <Stack
           direction="row"
           spacing={2}
+          // eslint-disable-next-line react/no-array-index-key
           key={index}
           alignItems="center"
           sx={{ margin: '15px 0' }}
