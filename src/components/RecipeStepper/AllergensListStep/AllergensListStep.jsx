@@ -14,12 +14,12 @@ const allergensCheckboxes = [
   'Fish',
   'Lupin',
   'Milk',
-  'Molluscs',
+  'Moluscs',
   'Mustard',
   'Nuts',
   'Peanuts',
-  'Sesame seeds',
-  'Sulphur dioxide',
+  'Sesame',
+  'Sulphur',
   'Soya',
 ];
 

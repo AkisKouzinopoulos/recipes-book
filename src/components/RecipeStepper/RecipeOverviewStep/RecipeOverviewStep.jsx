@@ -15,6 +15,7 @@ const RecipeOverviewStep = () => {
   const [recipeDescription, setRecipeDescription] = useState('');
   const [difficulty, setDifficulty] = useState('');
   const [prepTime, setPrepTime] = useState('');
+  const [imgUrl, setImgUrl] = useState('');
 
   const { dispatch } = useContext(RecipesContext);
 
@@ -34,6 +35,10 @@ const RecipeOverviewStep = () => {
     setPrepTime(e.target.value);
   };
 
+  const handleImgUrlChange = e => {
+    setImgUrl(e.target.value);
+  };
+
   const onBlurHandle = () => {
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
@@ -42,6 +47,7 @@ const RecipeOverviewStep = () => {
         description: recipeDescription,
         difficulty,
         preparationTime: prepTime,
+        imgUrl,
       },
     });
   };
@@ -91,6 +97,13 @@ const RecipeOverviewStep = () => {
         label="Preparation time"
         value={prepTime}
         onChange={handlePrepTimeChange}
+        onBlur={onBlurHandle}
+      />
+      <TextField
+        id="outlined-img-url"
+        label="Image Url"
+        value={imgUrl}
+        onChange={handleImgUrlChange}
         onBlur={onBlurHandle}
       />
       <AllergensListStep />
