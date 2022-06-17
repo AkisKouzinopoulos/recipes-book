@@ -46,8 +46,8 @@ const RecipeOverviewStep = () => {
   return (
     <>
       {ingredients.map((element, index) => (
-        // eslint-disable-next-line react/no-array-index-key
         <Grid
+          // eslint-disable-next-line react/no-array-index-key
           key={index}
           container
           item
