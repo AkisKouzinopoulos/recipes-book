@@ -7,7 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Typography from '@mui/material/Typography';
 import SiteLogo from '../SiteLogo/SiteLogo';
-import { ADD_RECIPE_PAGE } from '../../pages/Paths';
+import { RECIPES_LIST_PAGE, ADD_RECIPE_PAGE } from '../../pages/Paths';
 import { SearchContext } from '../../context/Search/SearchContext';
 import {
   AppBarStyled,
@@ -49,7 +49,7 @@ const AppHeader = () => {
               md={3}
               lg={3}
             >
-              {location.pathname !== ADD_RECIPE_PAGE && (
+              {location.pathname === RECIPES_LIST_PAGE && (
                 <Search>
                   <SearchIconWrapper>
                     <SearchIcon />
