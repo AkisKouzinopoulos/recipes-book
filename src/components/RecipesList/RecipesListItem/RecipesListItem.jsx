@@ -39,17 +39,19 @@ const RecipesListItem = ({ recipe }) => {
             justifyContent="center"
             alignItems="center"
           >
-            <Box
-              component="img"
-              sx={{
-                content: {
-                  xs: `url(${imgUrl}?max-w=425&max-h=200&fit=crop&auto=format})`,
-                  sm: `url(${imgUrl}?max-w=768&max-h=250&fit=crop&auto=format})`,
-                  md: `url(${imgUrl}?max-w=300&max-h=450&fit=crop&auto=format})`,
-                },
-              }}
-              alt={title}
-            />
+            {imgUrl && (
+              <Box
+                component="img"
+                sx={{
+                  content: {
+                    xs: `url(${imgUrl}?max-w=425&max-h=200&fit=crop&auto=format})`,
+                    sm: `url(${imgUrl}?max-w=768&max-h=250&fit=crop&auto=format})`,
+                    md: `url(${imgUrl}?max-w=300&max-h=450&fit=crop&auto=format})`,
+                  },
+                }}
+                alt={title}
+              />
+            )}
           </RecipeImgContainer>
           <RecipeOverview
             xs={12}
