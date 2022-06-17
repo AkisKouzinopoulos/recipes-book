@@ -55,6 +55,7 @@ const RecipeOverviewStep = () => {
         onBlur={onBlurHandle}
       />
       <TextField
+        required
         id="outlined-multiline-flexible"
         label="Description"
         multiline
@@ -77,12 +78,12 @@ const RecipeOverviewStep = () => {
             onChange={handleInputChange}
             onBlur={onBlurHandle}
           >
-            <MenuItem value="easyfast">Easy &amp; fast</MenuItem>
-            <MenuItem value="easy">Easy</MenuItem>
-            <MenuItem value="mediumfast">Medium &amp; fast</MenuItem>
-            <MenuItem value="medium">Medium</MenuItem>
-            <MenuItem value="expertfast">Expert &amp; fast</MenuItem>
-            <MenuItem value="expert">Expert</MenuItem>
+            <MenuItem value="Easy &amp; fast">Easy &amp; fast</MenuItem>
+            <MenuItem value="Easy">Easy</MenuItem>
+            <MenuItem value="Medium &amp; fast">Medium &amp; fast</MenuItem>
+            <MenuItem value="Medium">Medium</MenuItem>
+            <MenuItem value="Expert &amp; fast">Expert &amp; fast</MenuItem>
+            <MenuItem value="Expert">Expert</MenuItem>
           </Select>
         </FormControl>
         <RecipeRating readonly={false} />
