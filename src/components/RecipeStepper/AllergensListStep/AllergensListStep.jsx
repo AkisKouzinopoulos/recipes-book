@@ -19,7 +19,7 @@ const allergensCheckboxes = [
   'Nuts',
   'Peanuts',
   'Sesame',
-  'Sulphur',
+  'Sulphites',
   'Soya',
 ];
 
@@ -65,7 +65,7 @@ const AllergensListStep = () => {
                 name={item}
                 value={item}
                 checked={allergens.item}
-                onChange={e => handleAllergenChange(e)}
+                onChange={handleAllergenChange}
                 onBlur={onBlurHandle}
                 inputProps={{ 'aria-label': 'controlled' }}
               />

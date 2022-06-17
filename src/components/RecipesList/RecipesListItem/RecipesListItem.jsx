@@ -66,7 +66,7 @@ const RecipesListItem = ({ recipe }) => {
               <Typography variant="h2">{title}</Typography>
             </RecipeLink>
             <RecipeMadeInSteps variant="h4">
-              CREATE IN <span>{totalSteps}</span> STEPS
+              CREATE IN <span>{totalSteps || '0'}</span> STEPS
             </RecipeMadeInSteps>
             <RecipeDescription
               variant="body1"
