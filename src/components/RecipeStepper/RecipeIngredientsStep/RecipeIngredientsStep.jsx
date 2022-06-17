@@ -12,39 +12,43 @@ import Select from '@mui/material/Select';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
 const RecipeOverviewStep = () => {
-  const [ingredients, setIngredients] = useState([{ ingredient: "", quantity: "", unit: "" }])
+  const initialIngredients = [{ ingredient: '', quantity: '', unit: '' }];
+  const [ingredients, setIngredients] = useState(initialIngredients);
 
   const { dispatch } = useContext(RecipesContext);
 
   const handleChange = (i, e) => {
+    const { name, value } = e.target;
     const newIngredients = [...ingredients];
-    newIngredients[i][e.target.name] = e.target.value;
+    newIngredients[i][name] = value;
     setIngredients(newIngredients);
-  }
+  };
 
   const onBlurHandle = () => {
     dispatch({
-      type: 'UPDATE_NEW_RECIPE', payload: {
-        ingredients
-      }
+      type: 'UPDATE_NEW_RECIPE',
+      payload: {
+        ingredients,
+      },
     });
-  }
+  };
 
   const addFormFields = () => {
-    setIngredients([...ingredients, { ingredient: "", quantity: "", unit: "" }])
-  }
+    setIngredients([...ingredients, { ingredient: '', quantity: '', unit: '' }]);
+  };
 
-  const removeFormFields = (i) => {
+  const removeFormFields = i => {
     const newIngredients = [...ingredients];
     newIngredients.splice(i, 1);
-    setIngredients(newIngredients)
-  }
+    setIngredients(newIngredients);
+  };
 
   return (
     <>
       {ingredients.map((element, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <Grid key={index}
+        <Grid
+          key={index}
           container
           item
           direction="row"
@@ -53,7 +57,7 @@ const RecipeOverviewStep = () => {
           spacing={2}
           sx={{ marginBottom: '15px' }}
         >
-          <Grid item xs={4} >
+          <Grid item xs={4}>
             <TextField
               id="ingredient-input"
               label="Ingredient"
@@ -63,7 +67,7 @@ const RecipeOverviewStep = () => {
               onBlur={onBlurHandle}
             />
           </Grid>
-          <Grid item xs={4} >
+          <Grid item xs={4}>
             <TextField
               id="quantity-input"
               label="Quantity"
@@ -73,7 +77,7 @@ const RecipeOverviewStep = () => {
               onBlur={onBlurHandle}
             />
           </Grid>
-          <Grid item xs={3} >
+          <Grid item xs={3}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Unit</InputLabel>
               <Select
@@ -96,21 +100,24 @@ const RecipeOverviewStep = () => {
           </Grid>
           <Grid item xs={1}>
             <div>
-              {
-                index ?
-                  <IconButton aria-label="delete" size="medium" onClick={() => removeFormFields(index)} >
-                    <DeleteIcon fontSize="inherit" />
-                  </IconButton>
-                  : null
-              }
+              {index ? (
+                <IconButton
+                  aria-label="delete"
+                  size="medium"
+                  onClick={() => removeFormFields(index)}
+                >
+                  <DeleteIcon fontSize="inherit" />
+                </IconButton>
+              ) : null}
             </div>
           </Grid>
-
         </Grid>
       ))}
-      <Button variant="outlined" onClick={() => addFormFields()}>Add ingredient</Button>
+      <Button variant="outlined" onClick={() => addFormFields()}>
+        Add ingredient
+      </Button>
     </>
-  )
+  );
 };
 
 export default RecipeOverviewStep;

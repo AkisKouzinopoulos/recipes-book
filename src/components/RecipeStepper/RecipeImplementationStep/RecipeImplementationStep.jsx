@@ -13,8 +13,9 @@ const RecipeImplementationStep = () => {
   const { dispatch } = useContext(RecipesContext);
 
   const handleChange = (i, e) => {
+    const { value } = e.target;
     const newSteps = [...steps];
-    newSteps[i] = e.target.value;
+    newSteps[i] = value;
     setSteps(newSteps);
   };
 

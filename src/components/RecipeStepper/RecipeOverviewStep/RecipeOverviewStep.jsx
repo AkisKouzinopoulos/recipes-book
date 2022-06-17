@@ -10,42 +10,34 @@ import RecipeRating from '../../RecipeRating/RecipeRating';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
 const RecipeOverviewStep = () => {
-  const [recipeTitle, setRecipeTitle] = useState('');
-  const [recipeDescription, setRecipeDescription] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [prepTime, setPrepTime] = useState('');
-  const [imgUrl, setImgUrl] = useState('');
+  const initialOverview = {
+    title: '',
+    description: '',
+    difficulty: '',
+    preparationTime: '',
+    imgUrl: '',
+  };
+  const [overview, setOverview] = useState(initialOverview);
 
   const { dispatch } = useContext(RecipesContext);
 
-  const handleTitleChange = e => {
-    setRecipeTitle(e.target.value);
-  };
-
-  const handleDescriptionChange = e => {
-    setRecipeDescription(e.target.value);
-  };
-
-  const handleDifficultyChange = e => {
-    setDifficulty(e.target.value);
-  };
-
-  const handlePrepTimeChange = e => {
-    setPrepTime(e.target.value);
-  };
-
-  const handleImgUrlChange = e => {
-    setImgUrl(e.target.value);
+  const handleInputChange = e => {
+    const { name, value } = e.target;
+    setOverview({
+      ...overview,
+      [name]: value,
+    });
   };
 
   const onBlurHandle = () => {
+    const { title, description, difficulty, preparationTime, imgUrl } = overview;
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
       payload: {
-        title: recipeTitle,
-        description: recipeDescription,
+        title,
+        description,
         difficulty,
-        preparationTime: prepTime,
+        preparationTime,
         imgUrl,
       },
     });
@@ -57,8 +49,9 @@ const RecipeOverviewStep = () => {
         required
         id="outlined-required"
         label="Title"
-        defaultValue=""
-        onChange={handleTitleChange}
+        value={overview.title}
+        name="title"
+        onChange={handleInputChange}
         onBlur={onBlurHandle}
       />
       <TextField
@@ -66,8 +59,9 @@ const RecipeOverviewStep = () => {
         label="Description"
         multiline
         maxRows={4}
-        value={recipeDescription}
-        onChange={handleDescriptionChange}
+        value={overview.recipeDescription}
+        name="description"
+        onChange={handleInputChange}
         onBlur={onBlurHandle}
       />
       <Stack direction="row" spacing={3}>
@@ -76,9 +70,11 @@ const RecipeOverviewStep = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={difficulty}
+            value={overview.difficulty}
+            defaultValue="easy"
             label="Difficulty"
-            onChange={handleDifficultyChange}
+            name="difficulty"
+            onChange={handleInputChange}
             onBlur={onBlurHandle}
           >
             <MenuItem value="easyfast">Easy &amp; fast</MenuItem>
@@ -94,15 +90,17 @@ const RecipeOverviewStep = () => {
       <TextField
         id="outlined-prep-time"
         label="Preparation time"
-        value={prepTime}
-        onChange={handlePrepTimeChange}
+        value={overview.preparationTime}
+        name="preparationTime"
+        onChange={handleInputChange}
         onBlur={onBlurHandle}
       />
       <TextField
         id="outlined-img-url"
         label="Image Url"
-        value={imgUrl}
-        onChange={handleImgUrlChange}
+        value={overview.imgUrl}
+        name="imgUrl"
+        onChange={handleInputChange}
         onBlur={onBlurHandle}
       />
     </Stack>
