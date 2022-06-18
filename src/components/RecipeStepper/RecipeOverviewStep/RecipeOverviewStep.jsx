@@ -23,14 +23,14 @@ const RecipeOverviewStep = () => {
 
   const handleInputChange = e => {
     const { name, value } = e.target;
+    const newOverview = { ...overview };
+    newOverview[name] = value;
+    const { title, description, difficulty, preparationTime, imgUrl } = newOverview;
+
     setOverview({
-      ...overview,
+      ...newOverview,
       [name]: value,
     });
-  };
-
-  const onBlurHandle = () => {
-    const { title, description, difficulty, preparationTime, imgUrl } = overview;
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
       payload: {
@@ -52,7 +52,6 @@ const RecipeOverviewStep = () => {
         value={overview.title}
         name="title"
         onChange={handleInputChange}
-        onBlur={onBlurHandle}
       />
       <TextField
         required
@@ -63,7 +62,6 @@ const RecipeOverviewStep = () => {
         value={overview.recipeDescription}
         name="description"
         onChange={handleInputChange}
-        onBlur={onBlurHandle}
       />
       <Stack direction="row" spacing={3}>
         <FormControl fullWidth>
@@ -76,7 +74,6 @@ const RecipeOverviewStep = () => {
             label="Difficulty"
             name="difficulty"
             onChange={handleInputChange}
-            onBlur={onBlurHandle}
           >
             <MenuItem value="Easy &amp; fast">Easy &amp; fast</MenuItem>
             <MenuItem value="Easy">Easy</MenuItem>
@@ -94,7 +91,6 @@ const RecipeOverviewStep = () => {
         value={overview.preparationTime}
         name="preparationTime"
         onChange={handleInputChange}
-        onBlur={onBlurHandle}
       />
       <TextField
         id="outlined-img-url"
@@ -102,7 +98,6 @@ const RecipeOverviewStep = () => {
         value={overview.imgUrl}
         name="imgUrl"
         onChange={handleInputChange}
-        onBlur={onBlurHandle}
       />
     </Stack>
   );

@@ -39,13 +39,11 @@ const AllergensListStep = () => {
     }
 
     setAllergens(newAllergens);
-  };
 
-  const onBlurHandle = () => {
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
       payload: {
-        allergens,
+        allergens: newAllergens,
       },
     });
   };
@@ -66,7 +64,6 @@ const AllergensListStep = () => {
                 value={item}
                 checked={allergens.item}
                 onChange={handleAllergenChange}
-                onBlur={onBlurHandle}
                 inputProps={{ 'aria-label': 'controlled' }}
               />
             }

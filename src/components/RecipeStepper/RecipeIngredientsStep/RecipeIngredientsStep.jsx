@@ -22,13 +22,10 @@ const RecipeOverviewStep = () => {
     const newIngredients = [...ingredients];
     newIngredients[i][name] = value;
     setIngredients(newIngredients);
-  };
-
-  const onBlurHandle = () => {
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
       payload: {
-        ingredients,
+        ingredients: newIngredients,
       },
     });
   };
@@ -41,6 +38,12 @@ const RecipeOverviewStep = () => {
     const newIngredients = [...ingredients];
     newIngredients.splice(i, 1);
     setIngredients(newIngredients);
+    dispatch({
+      type: 'UPDATE_NEW_RECIPE',
+      payload: {
+        ingredients: newIngredients,
+      },
+    });
   };
 
   return (
@@ -64,7 +67,6 @@ const RecipeOverviewStep = () => {
               name="ingredient"
               value={element.ingredient || ''}
               onChange={e => handleChange(index, e)}
-              onBlur={onBlurHandle}
             />
           </Grid>
           <Grid item xs={4}>
@@ -74,7 +76,6 @@ const RecipeOverviewStep = () => {
               name="quantity"
               value={element.quantity || ''}
               onChange={e => handleChange(index, e)}
-              onBlur={onBlurHandle}
             />
           </Grid>
           <Grid item xs={3}>
@@ -87,7 +88,6 @@ const RecipeOverviewStep = () => {
                 value={element.unit || ''}
                 label="Unit"
                 onChange={e => handleChange(index, e)}
-                onBlur={onBlurHandle}
               >
                 <MenuItem value="k">kilos</MenuItem>
                 <MenuItem value="gr">gr</MenuItem>

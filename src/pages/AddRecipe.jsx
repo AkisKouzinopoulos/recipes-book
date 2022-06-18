@@ -14,20 +14,16 @@ const AddRecipe = () => {
   const { dispatch, newRecipe } = useContext(RecipesContext);
 
   const handleAddRecipe = () => {
-    setTimeout(() => {
-      // For fixing now the double call of the function when selecting allergen and clicking directly the Add btn
-      dispatch({ type: 'ADD_RECIPE' });
-      dispatch({ type: 'CLEAR_NEW_RECIPE' });
-      navigate(RECIPES_LIST_PAGE);
-    }, 1);
+    dispatch({ type: 'ADD_RECIPE' });
+    dispatch({ type: 'CLEAR_NEW_RECIPE' });
+    navigate(RECIPES_LIST_PAGE);
   };
 
-  // const disableAddBtn = !!(
-  //   newRecipe.title !== '' &&
-  //   newRecipe.description !== '' &&
-  //   newRecipe.steps?.length > 0 &&
-  //   newRecipe.ingredients?.length > 0
-  // );
+  const enableAddBtn =
+    newRecipe?.title?.length > 0 &&
+    newRecipe?.description?.length > 0 &&
+    newRecipe.steps?.length > 0 &&
+    newRecipe.ingredients?.length > 0;
 
   return (
     <Grid container spacing={2} alignItems="center" mt={0.1}>
@@ -36,7 +32,7 @@ const AddRecipe = () => {
       </Grid>
       <Grid item xs={12} sm={6} container justifyContent="center" alignItems="center">
         <Button
-          // disabled={!disableAddBtn}
+          disabled={!enableAddBtn}
           startIcon={<ArchiveIcon />}
           variant="contained"
           size="large"

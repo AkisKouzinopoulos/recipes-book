@@ -17,13 +17,10 @@ const RecipeImplementationStep = () => {
     const newSteps = [...steps];
     newSteps[i] = value;
     setSteps(newSteps);
-  };
-
-  const onBlurHandle = () => {
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
       payload: {
-        steps,
+        steps: newSteps,
         totalSteps: steps.length,
       },
     });
@@ -37,6 +34,13 @@ const RecipeImplementationStep = () => {
     const newSteps = [...steps];
     newSteps.splice(i, 1);
     setSteps(newSteps);
+    dispatch({
+      type: 'UPDATE_NEW_RECIPE',
+      payload: {
+        steps: newSteps,
+        totalSteps: steps.length,
+      },
+    });
   };
 
   return (
@@ -57,7 +61,6 @@ const RecipeImplementationStep = () => {
             name="step"
             value={element || ''}
             onChange={e => handleChange(index, e)}
-            onBlur={onBlurHandle}
           />
           {index ? (
             <IconButton aria-label="delete" size="medium" onClick={() => removeFormFields(index)}>
