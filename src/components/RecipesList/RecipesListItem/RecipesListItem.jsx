@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import styled from '@emotion/styled';
 import IngredientsList from '../../IngredientsList/IngredientsList';
 import AllergensList from '../../AllergensList/AllergensList';
 import { RECIPE_PAGE } from '../../../pages/Paths';
