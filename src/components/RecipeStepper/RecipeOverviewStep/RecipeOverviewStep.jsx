@@ -7,41 +7,38 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import RecipeRating from '../../RecipeRating/RecipeRating';
-import AllergensListStep from '../AllergensListStep/AllergensListStep';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
 const RecipeOverviewStep = () => {
-  const [recipeTitle, setRecipeTitle] = useState('');
-  const [recipeDescription, setRecipeDescription] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [prepTime, setPrepTime] = useState('');
+  const initialOverview = {
+    title: '',
+    description: '',
+    difficulty: '',
+    preparationTime: '',
+    imgUrl: '',
+  };
+  const [overview, setOverview] = useState(initialOverview);
 
   const { dispatch } = useContext(RecipesContext);
 
-  const handleTitleChange = e => {
-    setRecipeTitle(e.target.value);
-  };
+  const handleInputChange = e => {
+    const { name, value } = e.target;
+    const newOverview = { ...overview };
+    newOverview[name] = value;
+    const { title, description, difficulty, preparationTime, imgUrl } = newOverview;
 
-  const handleDescriptionChange = e => {
-    setRecipeDescription(e.target.value);
-  };
-
-  const handleDifficultyChange = e => {
-    setDifficulty(e.target.value);
-  };
-
-  const handlePrepTimeChange = e => {
-    setPrepTime(e.target.value);
-  };
-
-  const onBlurHandle = () => {
+    setOverview({
+      ...newOverview,
+      [name]: value,
+    });
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
       payload: {
-        title: recipeTitle,
-        description: recipeDescription,
+        title,
+        description,
         difficulty,
-        preparationTime: prepTime,
+        preparationTime,
+        imgUrl,
       },
     });
   };
@@ -52,18 +49,19 @@ const RecipeOverviewStep = () => {
         required
         id="outlined-required"
         label="Title"
-        defaultValue=""
-        onChange={handleTitleChange}
-        onBlur={onBlurHandle}
+        value={overview.title}
+        name="title"
+        onChange={handleInputChange}
       />
       <TextField
+        required
         id="outlined-multiline-flexible"
         label="Description"
         multiline
         maxRows={4}
-        value={recipeDescription}
-        onChange={handleDescriptionChange}
-        onBlur={onBlurHandle}
+        value={overview.recipeDescription}
+        name="description"
+        onChange={handleInputChange}
       />
       <Stack direction="row" spacing={3}>
         <FormControl fullWidth>
@@ -71,17 +69,18 @@ const RecipeOverviewStep = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={difficulty}
+            value={overview.difficulty}
+            defaultValue="easy"
             label="Difficulty"
-            onChange={handleDifficultyChange}
-            onBlur={onBlurHandle}
+            name="difficulty"
+            onChange={handleInputChange}
           >
-            <MenuItem value="easyfast">Easy &amp; fast</MenuItem>
-            <MenuItem value="easy">Easy</MenuItem>
-            <MenuItem value="mediumfast">Medium &amp; fast</MenuItem>
-            <MenuItem value="medium">Medium</MenuItem>
-            <MenuItem value="expertfast">Expert &amp; fast</MenuItem>
-            <MenuItem value="expert">Expert</MenuItem>
+            <MenuItem value="Easy &amp; fast">Easy &amp; fast</MenuItem>
+            <MenuItem value="Easy">Easy</MenuItem>
+            <MenuItem value="Medium &amp; fast">Medium &amp; fast</MenuItem>
+            <MenuItem value="Medium">Medium</MenuItem>
+            <MenuItem value="Expert &amp; fast">Expert &amp; fast</MenuItem>
+            <MenuItem value="Expert">Expert</MenuItem>
           </Select>
         </FormControl>
         <RecipeRating readonly={false} />
@@ -89,11 +88,17 @@ const RecipeOverviewStep = () => {
       <TextField
         id="outlined-prep-time"
         label="Preparation time"
-        value={prepTime}
-        onChange={handlePrepTimeChange}
-        onBlur={onBlurHandle}
+        value={overview.preparationTime}
+        name="preparationTime"
+        onChange={handleInputChange}
       />
-      <AllergensListStep />
+      <TextField
+        id="outlined-img-url"
+        label="Image Url"
+        value={overview.imgUrl}
+        name="imgUrl"
+        onChange={handleInputChange}
+      />
     </Stack>
   );
 };

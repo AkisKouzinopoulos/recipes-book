@@ -14,12 +14,12 @@ const allergensCheckboxes = [
   'Fish',
   'Lupin',
   'Milk',
-  'Molluscs',
+  'Moluscs',
   'Mustard',
   'Nuts',
   'Peanuts',
-  'Sesame seeds',
-  'Sulphur dioxide',
+  'Sesame',
+  'Sulphites',
   'Soya',
 ];
 
@@ -39,13 +39,11 @@ const AllergensListStep = () => {
     }
 
     setAllergens(newAllergens);
-  };
 
-  const onBlurHandle = () => {
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
       payload: {
-        allergens,
+        allergens: newAllergens,
       },
     });
   };
@@ -65,8 +63,7 @@ const AllergensListStep = () => {
                 name={item}
                 value={item}
                 checked={allergens.item}
-                onChange={e => handleAllergenChange(e)}
-                onBlur={onBlurHandle}
+                onChange={handleAllergenChange}
                 inputProps={{ 'aria-label': 'controlled' }}
               />
             }

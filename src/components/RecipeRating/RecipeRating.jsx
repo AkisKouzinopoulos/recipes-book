@@ -21,13 +21,6 @@ const RecipeRating = ({ readonly, ratingValue, size }) => {
 
   const { dispatch } = useContext(RecipesContext);
 
-  const onBlurHandle = () => {
-    dispatch({
-      type: 'UPDATE_NEW_RECIPE',
-      payload: { rating: value },
-    });
-  };
-
   return (
     <Box
       sx={{
@@ -46,8 +39,11 @@ const RecipeRating = ({ readonly, ratingValue, size }) => {
         emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
         onChange={(event, newValue) => {
           setValue(newValue);
+          dispatch({
+            type: 'UPDATE_NEW_RECIPE',
+            payload: { rating: newValue },
+          });
         }}
-        onBlur={onBlurHandle}
       />
     </Box>
   );

@@ -91,6 +91,100 @@
           "checked": true
         }
       ]
+    },
+    {
+      "title": "Lemon juice",
+      "description": "",
+      "difficulty": "Easy & fast",
+      "preparationTime": "",
+      "imgUrl": "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
+      "allergens": [
+        {
+          "name": "Celery",
+          "checked": true
+        },
+        {
+          "name": "Gluten",
+          "checked": true
+        },
+        {
+          "name": "Milk",
+          "checked": true
+        },
+        {
+          "name": "Moluscs",
+          "checked": true
+        },
+        {
+          "name": "Mustard",
+          "checked": true
+        }
+      ],
+      "ingredients": [
+        {
+          "ingredient": "Lemons",
+          "quantity": "3",
+          "unit": "cups"
+        }
+      ],
+      "steps": ["Get lemons", "Wash the lemons", "Squize them"],
+      "id": "ZYCZBYK"
+    },
+    {
+      "title": "Orange juice",
+      "description": "",
+      "difficulty": "Easy",
+      "preparationTime": "",
+      "imgUrl": "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
+      "allergens": [
+        {
+          "name": "Celery",
+          "checked": true
+        },
+        {
+          "name": "Fish",
+          "checked": true
+        },
+        {
+          "name": "Moluscs",
+          "checked": true
+        },
+        {
+          "name": "Nuts",
+          "checked": true
+        },
+        {
+          "name": "Peanuts",
+          "checked": true
+        },
+        {
+          "name": "Sesame",
+          "checked": true
+        },
+        {
+          "name": "Sulphites",
+          "checked": true
+        },
+        {
+          "name": "Soya",
+          "checked": true
+        }
+      ],
+      "ingredients": [
+        {
+          "ingredient": "Oranges",
+          "quantity": "3",
+          "unit": "cups"
+        },
+        {
+          "ingredient": "Sugar",
+          "quantity": "1/2",
+          "unit": "cups"
+        }
+      ],
+      "steps": ["Get the oranges", "Wash them"],
+      "totalSteps": 2,
+      "id": "Oqz1Nw0"
     }
   ]
 }

@@ -33,23 +33,26 @@ const RecipesListItem = ({ recipe }) => {
         <Grid container spacing={0}>
           <RecipeImgContainer
             container
+            item
             xs={12}
             sm={12}
             md={3}
             justifyContent="center"
             alignItems="center"
           >
-            <Box
-              component="img"
-              sx={{
-                content: {
-                  xs: `url(${imgUrl}?max-w=425&max-h=200&fit=crop&auto=format})`,
-                  sm: `url(${imgUrl}?max-w=768&max-h=250&fit=crop&auto=format})`,
-                  md: `url(${imgUrl}?max-w=300&max-h=450&fit=crop&auto=format})`,
-                },
-              }}
-              alt={title}
-            />
+            {imgUrl && (
+              <Box
+                component="img"
+                sx={{
+                  content: {
+                    xs: `url(${imgUrl}?max-w=425&max-h=200&fit=crop&auto=format})`,
+                    sm: `url(${imgUrl}?max-w=768&max-h=250&fit=crop&auto=format})`,
+                    md: `url(${imgUrl}?max-w=300&max-h=450&fit=crop&auto=format})`,
+                  },
+                }}
+                alt={title}
+              />
+            )}
           </RecipeImgContainer>
           <RecipeOverview
             xs={12}
@@ -66,7 +69,7 @@ const RecipesListItem = ({ recipe }) => {
               <Typography variant="h2">{title}</Typography>
             </RecipeLink>
             <RecipeMadeInSteps variant="h4">
-              CREATE IN <span>{totalSteps}</span> STEPS
+              CREATE IN <span>{totalSteps || '0'}</span> STEPS
             </RecipeMadeInSteps>
             <RecipeDescription
               variant="body1"
