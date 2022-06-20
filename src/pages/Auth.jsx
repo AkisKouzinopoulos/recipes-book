@@ -6,7 +6,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Signup from '../components/Signup/Signup';
 import Signin from '../components/Signin/Signin';
 
-const Auth = ({ handleSearch }) => (
+const Auth = () => (
   <>
     <Signup />
     <Signin />
