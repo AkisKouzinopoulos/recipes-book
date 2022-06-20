@@ -185,6 +185,52 @@
       "steps": ["Get the oranges", "Wash them"],
       "totalSteps": 2,
       "id": "Oqz1Nw0"
+    },
+    {
+      "title": "Lemon tart",
+      "description": "Lemon tart with pistachios",
+      "difficulty": "Medium",
+      "preparationTime": "1 h",
+      "imgUrl": "",
+      "ingredients": [
+        {
+          "ingredient": "Lemons",
+          "quantity": "3",
+          "unit": "cups"
+        },
+        {
+          "ingredient": "Pistachios",
+          "quantity": "100",
+          "unit": "gr"
+        },
+        {
+          "ingredient": "Milko",
+          "quantity": "1/2",
+          "unit": "cups"
+        }
+      ],
+      "steps": ["Wash lemons", "Squise the lemons"],
+      "totalSteps": 2,
+      "allergens": [
+        {
+          "name": "Milk",
+          "checked": true
+        },
+        {
+          "name": "Nuts",
+          "checked": true
+        }
+      ],
+      "rating": 4,
+      "id": "kbKXHcI"
+    }
+  ],
+  "users": [
+    {
+      "email": "akis@akis.com",
+      "password": "$2a$10$XN2Xy2EvIta7tYzFjKHv6eXE5uWtthL/VvPSbmEAsBFULjfPRzjHu",
+      "username": "akis",
+      "id": 1
     }
   ]
 }
