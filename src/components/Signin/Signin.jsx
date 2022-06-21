@@ -1,49 +1,58 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { RECIPES_LIST_PAGE } from '../../pages/Paths';
+import RecipesBookApiClient from '../../clients/RecipesBookApiClient';
 
 function Login() {
-  const [formData, setFormData] = useState({
+  const navigate = useNavigate();
+  const initialState = {
     email: '', // required
     password: '', // required
-  });
+  };
+  const [formData, setFormData] = useState(initialState);
 
-  function handleSubmit(e) {
+  const handleSubmit = async e => {
     e.preventDefault();
-    fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
-      .then(res => res.json())
-      .then(data => console.log(data.user));
-  }
+    await RecipesBookApiClient.login(formData);
+    navigate(RECIPES_LIST_PAGE);
+  };
 
-  function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   return (
-    <div>
-      <h1>Login Form</h1>
-      <form className="login-form" onSubmit={e => handleSubmit(e)}>
-        <input
-          type="text"
-          placeholder="Email"
+    <Stack justifyContent="center" alignItems="center">
+      <Typography variant="h2" my={3}>
+        Login
+      </Typography>
+      <Stack direction="column" spacing={2} maxWidth="320px">
+        <TextField
+          required
+          id="outlined-required-email"
+          label="Email"
           value={formData.email}
           name="email"
           onChange={e => handleChange(e)}
         />
-        <input
-          type="text"
-          placeholder="Password"
+        <TextField
+          required
+          id="outlined-required-password"
+          label="Password"
           value={formData.password}
           name="password"
           onChange={e => handleChange(e)}
         />
-        <button className="login-btn" type="submit">
+        <Button variant="outlined" onClick={handleSubmit}>
           Login
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Stack>
+    </Stack>
   );
 }
 

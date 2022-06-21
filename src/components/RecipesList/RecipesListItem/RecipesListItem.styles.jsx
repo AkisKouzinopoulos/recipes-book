@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
-
 import Typography from '@mui/material/Typography';
 
 export const RecipeLink = styled(Link)`

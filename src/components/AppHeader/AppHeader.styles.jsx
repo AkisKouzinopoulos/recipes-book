@@ -2,6 +2,7 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
 
 export const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -70,4 +71,11 @@ export const AddNewRecipeBtn = styled(Button)`
     background: #fbc41b;
     box-shadow: 0 0 0 2px #2a2a2a36 inset;
   }
+`;
+
+export const LoginBtn = styled(IconButton)`
+  color: #fbc41b;
+  margin-right: 2px;
+  box-shadow: 0 0 0 2px #2a2a2a;
+  width: 40px;
 `;
