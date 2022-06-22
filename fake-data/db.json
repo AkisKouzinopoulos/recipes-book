@@ -262,6 +262,12 @@
       "password": "$2a$10$XN2Xy2EvIta7tYzFjKHv6eXE5uWtthL/VvPSbmEAsBFULjfPRzjHu",
       "username": "akis",
       "id": 1
+    },
+    {
+      "email": "akis2@akis.com",
+      "password": "$2a$10$vF5ioDz4qfkiSGghbj7I7ese1V56jx5hKKRL1XUQO2g/rZXgI1Fky",
+      "username": "akis2",
+      "id": 2
     }
   ]
 }

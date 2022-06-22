@@ -10,8 +10,8 @@ import RecipesBookApiClient from '../../clients/RecipesBookApiClient';
 function Login() {
   const navigate = useNavigate();
   const initialState = {
-    email: '', // required
-    password: '', // required
+    email: '',
+    password: '',
   };
   const [formData, setFormData] = useState(initialState);
 
@@ -26,8 +26,11 @@ function Login() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const { email, password } = formData;
+  const enableSigninBtn = email?.length > 0 && password?.length > 0;
+
   return (
-    <Stack justifyContent="center" alignItems="center">
+    <>
       <Typography variant="h2" my={3}>
         Login
       </Typography>
@@ -46,13 +49,14 @@ function Login() {
           label="Password"
           value={formData.password}
           name="password"
+          type="password"
           onChange={e => handleChange(e)}
         />
-        <Button variant="outlined" onClick={handleSubmit}>
+        <Button variant="outlined" disabled={!enableSigninBtn} onClick={handleSubmit}>
           Login
         </Button>
       </Stack>
-    </Stack>
+    </>
   );
 }
 

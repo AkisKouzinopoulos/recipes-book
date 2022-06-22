@@ -10,9 +10,9 @@ import { RECIPES_LIST_PAGE } from '../../pages/Paths';
 const Signup = () => {
   const navigate = useNavigate();
   const initialState = {
-    email: '', // required
-    password: '', // required
-    username: '', // optional
+    email: '',
+    password: '',
+    username: '',
   };
   const [formData, setFormData] = useState(initialState);
   const handleSubmit = async e => {
@@ -26,8 +26,11 @@ const Signup = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const { email, username, password } = formData;
+  const enableSignupBtn = email?.length > 0 && username?.length > 0 && password?.length > 0;
+
   return (
-    <Stack justifyContent="center" alignItems="center">
+    <>
       <Typography variant="h2" my={3}>
         Sign up
       </Typography>
@@ -54,13 +57,14 @@ const Signup = () => {
           label="Password"
           value={formData.password}
           name="password"
+          type="password"
           onChange={e => handleChange(e)}
         />
-        <Button variant="outlined" onClick={handleSubmit}>
+        <Button variant="outlined" disabled={!enableSignupBtn} onClick={handleSubmit}>
           Sign Up
         </Button>
       </Stack>
-    </Stack>
+    </>
   );
 };
 
