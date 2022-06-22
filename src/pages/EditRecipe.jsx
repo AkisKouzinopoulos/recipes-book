@@ -32,7 +32,7 @@ const EditRecipe = () => {
       </Grid>
       <Grid item xs={12} sm={6} container justifyContent="center" alignItems="center">
         <Button
-          disabled={!enableAddBtn}
+          // disabled={!enableAddBtn}
           startIcon={<ArchiveIcon />}
           variant="contained"
           size="large"

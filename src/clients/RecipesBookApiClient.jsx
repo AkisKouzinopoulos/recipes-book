@@ -30,8 +30,8 @@ const RecipesBookApiClient = {
 
     return data;
   },
-  editRecipe: async (id, recipe) => {
-    const { data } = await axios.put(`/recipes/${id}`, recipe, {
+  editRecipe: async recipe => {
+    const { data } = await axios.put(`/recipes/${recipe.id}`, recipe, {
       method: 'POST',
       headers: HEADERS,
     });

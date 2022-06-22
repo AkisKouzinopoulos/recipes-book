@@ -225,21 +225,12 @@
       "id": "kbKXHcI"
     },
     {
-      "title": "Lemon tart wit srawberries",
-      "description": "A nice summer tart",
+      "id": "yE9AHbJ",
+      "title": "Lemon tart with strawberries",
+      "description": "A refreshing tart for the summer",
       "difficulty": "",
       "preparationTime": "",
-      "imgUrl": "",
-      "ingredients": [
-        {
-          "ingredient": "sdsds",
-          "quantity": "",
-          "unit": ""
-        }
-      ],
-      "steps": ["ss"],
-      "totalSteps": 1,
-      "id": "yE9AHbJ"
+      "imgUrl": ""
     }
   ],
   "users": [
