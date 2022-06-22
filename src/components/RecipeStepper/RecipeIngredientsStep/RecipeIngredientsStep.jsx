@@ -90,7 +90,9 @@ const RecipeOverviewStep = () => {
                 onChange={e => handleChange(index, e)}
               >
                 <MenuItem value="k">kilos</MenuItem>
+                <MenuItem value="lt">litters</MenuItem>
                 <MenuItem value="gr">gr</MenuItem>
+                <MenuItem value="mls">mls</MenuItem>
                 <MenuItem value="oz">oz</MenuItem>
                 <MenuItem value="tsp">tsp</MenuItem>
                 <MenuItem value="Tbsp">Tbsp</MenuItem>

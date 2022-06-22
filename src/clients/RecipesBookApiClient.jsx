@@ -13,7 +13,7 @@ const RecipesBookApiClient = {
 
     return data;
   },
-  getRecipeDetails: async (id) => {
+  getRecipeDetails: async id => {
     const { data } = await axios.get(`/recipes`, {
       headers: HEADERS,
     });
@@ -22,7 +22,7 @@ const RecipesBookApiClient = {
 
     return filteredData;
   },
-  addRecipe: async (recipe) => {
+  addRecipe: async recipe => {
     const { data } = await axios.post(`/recipes`, recipe, {
       method: 'POST',
       headers: HEADERS,
@@ -30,6 +30,23 @@ const RecipesBookApiClient = {
 
     return data;
   },
+  login: async formData => {
+    const { data } = await axios.post(`/login`, formData, {
+      method: 'POST',
+      headers: HEADERS,
+    });
+
+    localStorage.setItem('username', data.user.username);
+  },
+  signup: async formData => {
+    const { data } = await axios.post(`/users`, formData, {
+      method: 'POST',
+      headers: HEADERS,
+    });
+    localStorage.setItem('username', data.user.username);
+    console.log(data);
+  },
+
   // getRecipeDetails: async (id) => {
   //   const { data } = await axios.get(`/recipes/${id}`, {
   //     headers: HEADERS,
