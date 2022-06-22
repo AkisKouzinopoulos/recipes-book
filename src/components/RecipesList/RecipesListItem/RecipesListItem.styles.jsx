@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 
@@ -16,6 +17,7 @@ export const RecipeLink = styled(Link)`
 export const RecipeContainer = styled(Paper)`
   background: #fff;
   border-radius: 0;
+  position: relative;
   a {
     text-decoration: none;
   }
@@ -96,4 +98,10 @@ export const RecipeIngredientsList = styled(Typography)`
     line-height: 26px;
     font-size: 16px;
   }
+`;
+
+export const EditRecipeBtn = styled(Button)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;

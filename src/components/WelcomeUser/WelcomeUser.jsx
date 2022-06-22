@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -8,6 +8,7 @@ import Popover from '@mui/material/Popover';
 import LogoutIcon from '@mui/icons-material/Logout';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import { RECIPES_LIST_PAGE, AUTHENTICATE } from '../../pages/Paths';
+import { RecipesContext } from '../../context/Recipes/RecipesContext';
 
 const Username = styled(Stack)`
   color: #2a2a2a;
@@ -20,6 +21,7 @@ const Username = styled(Stack)`
 const WelcomeUser = ({ username }) => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
+  const { dispatch } = useContext(RecipesContext);
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -29,8 +31,13 @@ const WelcomeUser = ({ username }) => {
     setAnchorEl(null);
   };
 
-  const logout = () => {
+  const logout = e => {
+    e.preventDefault();
     localStorage.removeItem('username');
+    dispatch({
+      type: 'USER_LOGED_IN',
+      payload: false,
+    }); //  Update the state so the listItem listens to the change.
     navigate(RECIPES_LIST_PAGE);
   };
 

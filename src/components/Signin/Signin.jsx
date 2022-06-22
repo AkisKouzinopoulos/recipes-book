@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { RECIPES_LIST_PAGE } from '../../pages/Paths';
 import RecipesBookApiClient from '../../clients/RecipesBookApiClient';
+import { RecipesContext } from '../../context/Recipes/RecipesContext';
 
 function Login() {
   const navigate = useNavigate();
@@ -15,9 +16,19 @@ function Login() {
   };
   const [formData, setFormData] = useState(initialState);
 
+  const { dispatch } = useContext(RecipesContext);
+
   const handleSubmit = async e => {
     e.preventDefault();
-    await RecipesBookApiClient.login(formData);
+    const loginResponse = await RecipesBookApiClient.login(formData);
+
+    if (loginResponse.accessToken) {
+      dispatch({
+        type: 'USER_LOGED_IN',
+        payload: true,
+      });
+    }
+
     navigate(RECIPES_LIST_PAGE);
   };
 

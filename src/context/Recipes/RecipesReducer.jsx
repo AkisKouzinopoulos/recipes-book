@@ -30,6 +30,11 @@ export const recipesReducer = (state, action) => {
         ...state,
         newRecipe: {},
       };
+    case 'USER_LOGED_IN':
+      return {
+        ...state,
+        userIsLoggedIn: action.payload,
+      };
     case 'SET_LOADING':
       return {
         ...state,

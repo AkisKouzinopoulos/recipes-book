@@ -15,6 +15,7 @@ const Signup = () => {
     username: '',
   };
   const [formData, setFormData] = useState(initialState);
+
   const handleSubmit = async e => {
     e.preventDefault();
     await RecipesBookApiClient.signup(formData);

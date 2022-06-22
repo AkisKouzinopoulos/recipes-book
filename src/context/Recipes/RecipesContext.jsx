@@ -7,6 +7,7 @@ const initialState = {
   newRecipe: {},
   isLoading: false,
   error: false,
+  userIsLoggedIn: false,
 };
 
 export const RecipesContext = createContext(initialState);

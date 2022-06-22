@@ -37,6 +37,7 @@ const RecipesBookApiClient = {
     });
 
     localStorage.setItem('username', data.user.username);
+    return data;
   },
   signup: async formData => {
     const { data } = await axios.post(`/users`, formData, {
