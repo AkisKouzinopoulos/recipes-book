@@ -268,18 +268,6 @@
       "password": "$2a$10$vF5ioDz4qfkiSGghbj7I7ese1V56jx5hKKRL1XUQO2g/rZXgI1Fky",
       "username": "akis2",
       "id": 2
-    },
-    {
-      "email": "akis4@akis.com",
-      "password": "$2a$10$rI5FkxKaLc4qnT6QQjPY.e3Js6EPdiQP7SJpBGqUqIQKzGgDGFFKu",
-      "username": "akis4",
-      "id": 3
-    },
-    {
-      "email": "akis5@akis.com",
-      "password": "$2a$10$sQ0hy5rwR60GAVDwKzcGF.glYlWiCT7l1Im0jXmxUNPA.lG.51Vea",
-      "username": "akis5",
-      "id": 4
     }
   ]
 }

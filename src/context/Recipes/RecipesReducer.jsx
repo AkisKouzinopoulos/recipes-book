@@ -1,4 +1,4 @@
-import { addNewRecipe } from './RecipesActions';
+import { addNewRecipe, editRecipe } from './RecipesActions';
 
 export const recipesReducer = (state, action) => {
   switch (action.type) {
@@ -18,6 +18,12 @@ export const recipesReducer = (state, action) => {
       return {
         ...state,
         recipes: [...state.recipes, addNewRecipe(state.newRecipe)],
+        isLoading: false,
+      };
+    case 'EDIT_RECIPE':
+      return {
+        ...state,
+        recipes: [...state.recipes, editRecipe(state.newRecipe)],
         isLoading: false,
       };
     case 'UPDATE_NEW_RECIPE':

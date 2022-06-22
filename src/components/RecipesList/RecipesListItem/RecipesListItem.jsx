@@ -1,11 +1,12 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import EditIcon from '@mui/icons-material/Edit';
 import IngredientsList from '../../IngredientsList/IngredientsList';
 import AllergensList from '../../AllergensList/AllergensList';
-import { RECIPE_PAGE } from '../../../pages/Paths';
+import { RECIPE_PAGE, EDIT_RECIPE_PAGE } from '../../../pages/Paths';
 import {
   RecipeContainer,
   RecipeOverview,
@@ -20,7 +21,8 @@ import {
 } from './RecipesListItem.styles';
 
 const RecipesListItem = ({ recipe }) => {
-  const { title, imgUrl, description, totalSteps, difficulty, ingredients, allergens } = recipe;
+  const navigate = useNavigate();
+  const { id, title, imgUrl, description, totalSteps, difficulty, ingredients, allergens } = recipe;
   const userIsLoggedIn = localStorage.getItem('username');
 
   return (
@@ -103,7 +105,11 @@ const RecipesListItem = ({ recipe }) => {
           </RecipeIngredients>
         </Grid>
         {userIsLoggedIn && (
-          <EditRecipeBtn variant="outlined" startIcon={<EditIcon />}>
+          <EditRecipeBtn
+            variant="outlined"
+            startIcon={<EditIcon />}
+            onClick={() => navigate(`${EDIT_RECIPE_PAGE}${id}`)}
+          >
             Edit recipe
           </EditRecipeBtn>
         )}
