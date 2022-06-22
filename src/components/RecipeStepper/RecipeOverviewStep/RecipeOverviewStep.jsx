@@ -59,7 +59,7 @@ const RecipeOverviewStep = () => {
         label="Description"
         multiline
         maxRows={4}
-        value={overview.recipeDescription}
+        value={overview.description}
         name="description"
         onChange={handleInputChange}
       />
@@ -70,7 +70,7 @@ const RecipeOverviewStep = () => {
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={overview.difficulty}
-            defaultValue="easy"
+            defaultValue="Easy"
             label="Difficulty"
             name="difficulty"
             onChange={handleInputChange}
