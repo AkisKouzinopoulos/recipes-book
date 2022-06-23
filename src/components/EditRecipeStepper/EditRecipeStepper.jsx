@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EditRecipeOverviewStep from './EditRecipeOverviewStep/EditRecipeOverviewStep';
 import EditRecipeIngredientsStep from './EditRecipeIngredientsStep/EditRecipeIngredientsStep';
 import EditRecipeImplementationStep from './EditRecipeImplementationStep/EditRecipeImplementationStep';
-import AllergensListStep from './AllergensListStep/AllergensListStep';
+import EditAllergensListStep from './EditAllergensListStep/EditAllergensListStep';
 
 export const AccordionSx = {
   margin: '15px 0',
@@ -64,7 +64,7 @@ const EditRecipeStepper = () => (
         <Typography>Add allergens</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <AllergensListStep />
+        <EditAllergensListStep />
       </AccordionDetails>
     </Accordion>
   </div>

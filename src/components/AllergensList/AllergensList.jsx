@@ -16,12 +16,14 @@ export const AllergenImg = styled('div')`
 
 const AllergensList = ({ allergens }) => (
   <Stack direction="row" flexWrap="wrap" my={2}>
-    {allergens?.map((item, index) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <div key={index}>
-        <AllergenImg url={`../../assets/${item.name}.png`} />
-      </div>
-    ))}
+    {allergens?.map(
+      item =>
+        item.checked && (
+          <div key={item.name}>
+            <AllergenImg url={`../../assets/${item.name}.png`} />
+          </div>
+        )
+    )}
   </Stack>
 );
 

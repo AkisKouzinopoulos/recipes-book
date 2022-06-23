@@ -43,12 +43,56 @@
           "checked": true
         },
         {
-          "name": "Fish",
+          "name": "Gluten",
+          "checked": true
+        },
+        {
+          "name": "Crustaceans",
           "checked": true
         },
         {
           "name": "Eggs",
+          "checked": false
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": false
+        },
+        {
+          "name": "Milk",
           "checked": true
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
+        },
+        {
+          "name": "Nuts",
+          "checked": false
+        },
+        {
+          "name": "Peanuts",
+          "checked": false
+        },
+        {
+          "name": "Sesame",
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": true
+        },
+        {
+          "name": "Soya",
+          "checked": false
         }
       ]
     },
@@ -83,12 +127,60 @@
       ],
       "allergens": [
         {
-          "name": "Soya",
+          "name": "Celery",
+          "checked": true
+        },
+        {
+          "name": "Gluten",
+          "checked": true
+        },
+        {
+          "name": "Crustaceans",
+          "checked": false
+        },
+        {
+          "name": "Eggs",
+          "checked": false
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": false
+        },
+        {
+          "name": "Milk",
+          "checked": false
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
+        },
+        {
+          "name": "Nuts",
+          "checked": false
+        },
+        {
+          "name": "Peanuts",
           "checked": true
         },
         {
           "name": "Sesame",
-          "checked": true
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": false
+        },
+        {
+          "name": "Soya",
+          "checked": false
         }
       ]
     },
@@ -108,8 +200,24 @@
           "checked": true
         },
         {
-          "name": "Milk",
+          "name": "Crustaceans",
           "checked": true
+        },
+        {
+          "name": "Eggs",
+          "checked": false
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": false
+        },
+        {
+          "name": "Milk",
+          "checked": false
         },
         {
           "name": "Moluscs",
@@ -117,7 +225,27 @@
         },
         {
           "name": "Mustard",
-          "checked": true
+          "checked": false
+        },
+        {
+          "name": "Nuts",
+          "checked": false
+        },
+        {
+          "name": "Peanuts",
+          "checked": false
+        },
+        {
+          "name": "Sesame",
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": false
+        },
+        {
+          "name": "Soya",
+          "checked": false
         }
       ],
       "ingredients": [
@@ -142,12 +270,36 @@
           "checked": true
         },
         {
-          "name": "Fish",
+          "name": "Gluten",
           "checked": true
         },
         {
-          "name": "Moluscs",
+          "name": "Crustaceans",
           "checked": true
+        },
+        {
+          "name": "Eggs",
+          "checked": false
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": true
+        },
+        {
+          "name": "Milk",
+          "checked": false
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
         },
         {
           "name": "Nuts",
@@ -159,7 +311,7 @@
         },
         {
           "name": "Sesame",
-          "checked": true
+          "checked": false
         },
         {
           "name": "Sulphites",
@@ -167,7 +319,7 @@
         },
         {
           "name": "Soya",
-          "checked": true
+          "checked": false
         }
       ],
       "ingredients": [
@@ -218,12 +370,60 @@
       "totalSteps": 3,
       "allergens": [
         {
-          "name": "Milk",
+          "name": "Celery",
           "checked": true
+        },
+        {
+          "name": "Gluten",
+          "checked": true
+        },
+        {
+          "name": "Crustaceans",
+          "checked": true
+        },
+        {
+          "name": "Eggs",
+          "checked": true
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": true
+        },
+        {
+          "name": "Milk",
+          "checked": false
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
         },
         {
           "name": "Nuts",
           "checked": true
+        },
+        {
+          "name": "Peanuts",
+          "checked": false
+        },
+        {
+          "name": "Sesame",
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": false
+        },
+        {
+          "name": "Soya",
+          "checked": false
         }
       ],
       "rating": 4,
@@ -231,7 +431,7 @@
     },
     {
       "steps": [
-        "step one description",
+        "step one description!",
         "step two description",
         "step three description",
         "step four description",
@@ -244,7 +444,77 @@
       "difficulty": "",
       "preparationTime": "",
       "imgUrl": "",
-      "rating": 3.5
+      "rating": 3.5,
+      "allergens": [
+        {
+          "name": "Celery",
+          "checked": false
+        },
+        {
+          "name": "Gluten",
+          "checked": false
+        },
+        {
+          "name": "Crustaceans",
+          "checked": true
+        },
+        {
+          "name": "Eggs",
+          "checked": true
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": true
+        },
+        {
+          "name": "Milk",
+          "checked": true
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
+        },
+        {
+          "name": "Nuts",
+          "checked": false
+        },
+        {
+          "name": "Peanuts",
+          "checked": false
+        },
+        {
+          "name": "Sesame",
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": true
+        },
+        {
+          "name": "Soya",
+          "checked": false
+        }
+      ],
+      "ingredients": [
+        {
+          "ingredient": "Lemons",
+          "quantity": "3",
+          "unit": "cups"
+        },
+        {
+          "ingredient": "Pistachios",
+          "quantity": "100",
+          "unit": "gr"
+        }
+      ]
     }
   ],
   "users": [
