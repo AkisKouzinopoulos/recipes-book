@@ -1,11 +1,12 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import styled from '@emotion/styled';
+import EditIcon from '@mui/icons-material/Edit';
 import IngredientsList from '../../IngredientsList/IngredientsList';
 import AllergensList from '../../AllergensList/AllergensList';
-import { RECIPE_PAGE } from '../../../pages/Paths';
+import { RECIPE_PAGE, EDIT_RECIPE_PAGE } from '../../../pages/Paths';
 import {
   RecipeContainer,
   RecipeOverview,
@@ -16,10 +17,13 @@ import {
   RecipeImgContainer,
   RecipeIngredients,
   RecipeLink,
+  EditRecipeBtn,
 } from './RecipesListItem.styles';
 
 const RecipesListItem = ({ recipe }) => {
-  const { title, imgUrl, description, totalSteps, difficulty, ingredients, allergens } = recipe;
+  const navigate = useNavigate();
+  const { id, title, imgUrl, description, totalSteps, difficulty, ingredients, allergens } = recipe;
+  const userIsLoggedIn = localStorage.getItem('username');
 
   return (
     <Grid item xs={12}>
@@ -100,6 +104,15 @@ const RecipesListItem = ({ recipe }) => {
             <IngredientsList ingredients={ingredients} />
           </RecipeIngredients>
         </Grid>
+        {userIsLoggedIn && (
+          <EditRecipeBtn
+            variant="outlined"
+            startIcon={<EditIcon />}
+            onClick={() => navigate(`${EDIT_RECIPE_PAGE}${id}`)}
+          >
+            Edit recipe
+          </EditRecipeBtn>
+        )}
       </RecipeContainer>
     </Grid>
   );

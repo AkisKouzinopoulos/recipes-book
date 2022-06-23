@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
@@ -8,8 +9,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import RecipeRating from '../../RecipeRating/RecipeRating';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
+import { fetchRecipeDetails } from '../../../context/Recipes/RecipesActions';
 
-const RecipeOverviewStep = () => {
+const EditRecipeOverviewStep = () => {
+  const { id } = useParams();
   const initialOverview = {
     title: '',
     description: '',
@@ -18,8 +21,25 @@ const RecipeOverviewStep = () => {
     imgUrl: '',
   };
   const [overview, setOverview] = useState(initialOverview);
+  const { isLoading, dispatch } = useContext(RecipesContext);
 
-  const { dispatch } = useContext(RecipesContext);
+  useEffect(() => {
+    dispatch({ type: 'SET_LOADING' });
+
+    const getRecipeDetails = async () => {
+      const recipeDetailsData = await fetchRecipeDetails(id);
+      dispatch({ type: 'GET_RECIPE_DETAILS', payload: recipeDetailsData });
+      setOverview({
+        title: recipeDetailsData?.title,
+        description: recipeDetailsData?.description,
+        difficulty: recipeDetailsData?.difficulty,
+        preparationTime: recipeDetailsData?.preparationTime,
+        imgUrl: recipeDetailsData?.imgUrl,
+      });
+      dispatch({ type: 'UPDATE_NEW_RECIPE', payload: recipeDetailsData }); //  Fill the temp newRecipe with the recipe's data
+    };
+    getRecipeDetails();
+  }, [dispatch, id]);
 
   const handleInputChange = e => {
     const { name, value } = e.target;
@@ -34,6 +54,7 @@ const RecipeOverviewStep = () => {
     dispatch({
       type: 'UPDATE_NEW_RECIPE',
       payload: {
+        id,
         title,
         description,
         difficulty,
@@ -103,4 +124,4 @@ const RecipeOverviewStep = () => {
   );
 };
 
-export default RecipeOverviewStep;
+export default EditRecipeOverviewStep;

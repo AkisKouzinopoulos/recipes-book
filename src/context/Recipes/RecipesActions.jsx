@@ -10,7 +10,7 @@ export const fetchRecipes = async () => {
   return storesData;
 };
 
-export const fetchRecipeDetails = async (id) => {
+export const fetchRecipeDetails = async id => {
   const recipeDetailsData = await RecipesBookApiClient.getRecipeDetails(id)
     .then(response => response)
     .catch(() => {
@@ -20,8 +20,18 @@ export const fetchRecipeDetails = async (id) => {
   return recipeDetailsData;
 };
 
-export const addNewRecipe = async (recipe) => {
+export const addNewRecipe = async recipe => {
   const recipeData = await RecipesBookApiClient.addRecipe(recipe)
+    .then(response => response)
+    .catch(() => {
+      // setError(true);
+    });
+
+  return recipeData;
+};
+
+export const editRecipe = async recipe => {
+  const recipeData = await RecipesBookApiClient.editRecipe(recipe)
     .then(response => response)
     .catch(() => {
       // setError(true);

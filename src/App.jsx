@@ -3,11 +3,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import { ThemeProvider } from '@mui/material/styles';
 import styled from '@emotion/styled';
-import { RECIPES_LIST_PAGE, RECIPE_PAGE, ADD_RECIPE_PAGE, AUTHENTICATE } from './pages/Paths';
+import {
+  RECIPES_LIST_PAGE,
+  RECIPE_PAGE,
+  ADD_RECIPE_PAGE,
+  EDIT_RECIPE_PAGE,
+  AUTHENTICATE,
+} from './pages/Paths';
 import { theme } from './Theme';
 import Home from './pages/Home';
 import Recipe from './pages/Recipe';
 import AddRecipe from './pages/AddRecipe';
+import EditRecipe from './pages/EditRecipe';
 import AppHeader from './components/AppHeader/AppHeader';
 import Auth from './pages/Auth';
 import { RecipesProvider } from './context/Recipes/RecipesContext';
@@ -38,6 +45,7 @@ const App = () => (
               <Route path={RECIPES_LIST_PAGE} element={<Home />} />
               <Route path={`${RECIPE_PAGE}:id`} element={<Recipe />} />
               <Route path={ADD_RECIPE_PAGE} element={<AddRecipe />} />
+              <Route path={`${EDIT_RECIPE_PAGE}:id`} element={<EditRecipe />} />
               <Route path={AUTHENTICATE} element={<Auth />} />
             </Routes>
           </MainContainer>

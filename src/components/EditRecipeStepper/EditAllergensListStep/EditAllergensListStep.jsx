@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Stack from '@mui/material/Stack';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -23,10 +23,15 @@ const allergensCheckboxes = [
   { name: 'Soya', checked: false },
 ];
 
-const AllergensListStep = () => {
-  const [allergens, setAllergens] = useState(allergensCheckboxes);
+const EditAllergensListStep = () => {
+  const [allergens, setAllergens] = useState([]);
 
-  const { dispatch } = useContext(RecipesContext);
+  const { newRecipe, dispatch } = useContext(RecipesContext);
+
+  useEffect(() => {
+    dispatch({ type: 'SET_LOADING' });
+    setAllergens(newRecipe?.allergens);
+  }, [dispatch, newRecipe?.allergens]);
 
   const handleAllergenChange = e => {
     const newAllergens = [...allergens];
@@ -49,25 +54,27 @@ const AllergensListStep = () => {
         Allergens
       </Typography>
       <Stack direction="row" flexWrap="wrap">
-        {allergensCheckboxes.map((item, index) => (
-          <FormControlLabel
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            control={
-              <Checkbox
-                name={item.name}
-                value={item.name}
-                checked={allergens.item?.name}
-                onChange={handleAllergenChange}
-                inputProps={{ 'aria-label': 'controlled' }}
-              />
-            }
-            label={item.name}
-          />
-        ))}
+        {allergens?.map(item => {
+          const allergenChecked = allergens?.find(el => el.name === item.name);
+          return (
+            <FormControlLabel
+              key={item.name}
+              control={
+                <Checkbox
+                  name={item.name}
+                  value={item.name}
+                  checked={allergenChecked?.checked}
+                  onChange={handleAllergenChange}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                />
+              }
+              label={item.name}
+            />
+          );
+        })}
       </Stack>
     </FormGroup>
   );
 };
 
-export default AllergensListStep;
+export default EditAllergensListStep;

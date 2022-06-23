@@ -5,7 +5,7 @@
       "title": "LEMON RICOTTA PASTA",
       "description": "Lemon Ricotta Pasta is light, fresh, and quick to prepare, making it the perfect pasta for weeknight dinners in the summer.",
       "imgUrl": "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-      "totalSteps": 4,
+      "totalSteps": 5,
       "difficulty": "Easy",
       "rating": 4,
       "preparationTime": "30 mins",
@@ -43,12 +43,56 @@
           "checked": true
         },
         {
-          "name": "Fish",
+          "name": "Gluten",
+          "checked": true
+        },
+        {
+          "name": "Crustaceans",
           "checked": true
         },
         {
           "name": "Eggs",
+          "checked": false
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": false
+        },
+        {
+          "name": "Milk",
           "checked": true
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
+        },
+        {
+          "name": "Nuts",
+          "checked": false
+        },
+        {
+          "name": "Peanuts",
+          "checked": false
+        },
+        {
+          "name": "Sesame",
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": true
+        },
+        {
+          "name": "Soya",
+          "checked": false
         }
       ]
     },
@@ -83,12 +127,60 @@
       ],
       "allergens": [
         {
-          "name": "Soya",
+          "name": "Celery",
+          "checked": true
+        },
+        {
+          "name": "Gluten",
+          "checked": true
+        },
+        {
+          "name": "Crustaceans",
+          "checked": false
+        },
+        {
+          "name": "Eggs",
+          "checked": false
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": false
+        },
+        {
+          "name": "Milk",
+          "checked": false
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
+        },
+        {
+          "name": "Nuts",
+          "checked": false
+        },
+        {
+          "name": "Peanuts",
           "checked": true
         },
         {
           "name": "Sesame",
-          "checked": true
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": false
+        },
+        {
+          "name": "Soya",
+          "checked": false
         }
       ]
     },
@@ -108,8 +200,24 @@
           "checked": true
         },
         {
-          "name": "Milk",
+          "name": "Crustaceans",
           "checked": true
+        },
+        {
+          "name": "Eggs",
+          "checked": false
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": false
+        },
+        {
+          "name": "Milk",
+          "checked": false
         },
         {
           "name": "Moluscs",
@@ -117,7 +225,27 @@
         },
         {
           "name": "Mustard",
-          "checked": true
+          "checked": false
+        },
+        {
+          "name": "Nuts",
+          "checked": false
+        },
+        {
+          "name": "Peanuts",
+          "checked": false
+        },
+        {
+          "name": "Sesame",
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": false
+        },
+        {
+          "name": "Soya",
+          "checked": false
         }
       ],
       "ingredients": [
@@ -142,12 +270,36 @@
           "checked": true
         },
         {
-          "name": "Fish",
+          "name": "Gluten",
           "checked": true
         },
         {
-          "name": "Moluscs",
+          "name": "Crustaceans",
           "checked": true
+        },
+        {
+          "name": "Eggs",
+          "checked": false
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": true
+        },
+        {
+          "name": "Milk",
+          "checked": false
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
         },
         {
           "name": "Nuts",
@@ -159,7 +311,7 @@
         },
         {
           "name": "Sesame",
-          "checked": true
+          "checked": false
         },
         {
           "name": "Sulphites",
@@ -167,7 +319,7 @@
         },
         {
           "name": "Soya",
-          "checked": true
+          "checked": false
         }
       ],
       "ingredients": [
@@ -204,44 +356,25 @@
           "unit": "gr"
         },
         {
-          "ingredient": "Milko",
+          "ingredient": "Milk",
           "quantity": "1/2",
           "unit": "cups"
-        }
-      ],
-      "steps": ["Wash lemons", "Squise the lemons"],
-      "totalSteps": 2,
-      "allergens": [
-        {
-          "name": "Milk",
-          "checked": true
         },
         {
-          "name": "Nuts",
-          "checked": true
-        }
-      ],
-      "rating": 4,
-      "id": "kbKXHcI"
-    },
-    {
-      "title": "Liam's pasta",
-      "description": "Dsc",
-      "difficulty": "",
-      "preparationTime": "",
-      "imgUrl": "",
-      "ingredients": [
-        {
-          "ingredient": "Patsta",
+          "ingredient": "Sugar",
           "quantity": "1",
           "unit": "k"
         }
       ],
-      "steps": ["Boil water", "Step 22222"],
-      "totalSteps": 2,
+      "steps": ["Wash lemons well", "Squise the lemons", "Add sugar and stir well"],
+      "totalSteps": 3,
       "allergens": [
         {
-          "name": "Milk",
+          "name": "Celery",
+          "checked": true
+        },
+        {
+          "name": "Gluten",
           "checked": true
         },
         {
@@ -249,11 +382,139 @@
           "checked": true
         },
         {
-          "name": "Gluten",
+          "name": "Eggs",
           "checked": true
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": true
+        },
+        {
+          "name": "Milk",
+          "checked": false
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
+        },
+        {
+          "name": "Nuts",
+          "checked": true
+        },
+        {
+          "name": "Peanuts",
+          "checked": false
+        },
+        {
+          "name": "Sesame",
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": false
+        },
+        {
+          "name": "Soya",
+          "checked": false
         }
       ],
-      "id": "0D0NZsH"
+      "rating": 4,
+      "id": "kbKXHcI"
+    },
+    {
+      "steps": [
+        "step one description!",
+        "step two description",
+        "step three description",
+        "step four description",
+        "New step 5"
+      ],
+      "totalSteps": 5,
+      "id": "yE9AHbJ",
+      "title": "Lemon tart with strawberries & biscuit",
+      "description": "A refreshing tart for the summer",
+      "difficulty": "",
+      "preparationTime": "",
+      "imgUrl": "",
+      "rating": 3.5,
+      "allergens": [
+        {
+          "name": "Celery",
+          "checked": false
+        },
+        {
+          "name": "Gluten",
+          "checked": false
+        },
+        {
+          "name": "Crustaceans",
+          "checked": true
+        },
+        {
+          "name": "Eggs",
+          "checked": true
+        },
+        {
+          "name": "Fish",
+          "checked": false
+        },
+        {
+          "name": "Lupin",
+          "checked": true
+        },
+        {
+          "name": "Milk",
+          "checked": true
+        },
+        {
+          "name": "Moluscs",
+          "checked": false
+        },
+        {
+          "name": "Mustard",
+          "checked": false
+        },
+        {
+          "name": "Nuts",
+          "checked": false
+        },
+        {
+          "name": "Peanuts",
+          "checked": false
+        },
+        {
+          "name": "Sesame",
+          "checked": false
+        },
+        {
+          "name": "Sulphites",
+          "checked": true
+        },
+        {
+          "name": "Soya",
+          "checked": false
+        }
+      ],
+      "ingredients": [
+        {
+          "ingredient": "Lemons",
+          "quantity": "3",
+          "unit": "cups"
+        },
+        {
+          "ingredient": "Pistachios",
+          "quantity": "100",
+          "unit": "gr"
+        }
+      ]
     }
   ],
   "users": [
