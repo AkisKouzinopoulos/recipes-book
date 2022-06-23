@@ -27,8 +27,6 @@ export const recipesReducer = (state, action) => {
         isLoading: false,
       };
     case 'UPDATE_NEW_RECIPE':
-      console.log('action', action.payload);
-
       return {
         ...state,
         newRecipe: { ...state.newRecipe, ...action.payload },
