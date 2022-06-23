@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
@@ -11,11 +11,16 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
-const RecipeOverviewStep = () => {
+const EditRecipeIngredientsStep = () => {
   const initialIngredients = [{ ingredient: '', quantity: '', unit: '' }];
   const [ingredients, setIngredients] = useState(initialIngredients);
 
-  const { dispatch } = useContext(RecipesContext);
+  const { newRecipe, dispatch } = useContext(RecipesContext);
+
+  useEffect(() => {
+    dispatch({ type: 'SET_LOADING' });
+    setIngredients(newRecipe?.ingredients);
+  }, [dispatch, newRecipe?.ingredients]);
 
   const handleChange = (i, e) => {
     const { name, value } = e.target;
@@ -48,7 +53,7 @@ const RecipeOverviewStep = () => {
 
   return (
     <>
-      {ingredients.map((element, index) => (
+      {ingredients?.map((element, index) => (
         <Grid
           // eslint-disable-next-line react/no-array-index-key
           key={index}
@@ -122,4 +127,4 @@ const RecipeOverviewStep = () => {
   );
 };
 
-export default RecipeOverviewStep;
+export default EditRecipeIngredientsStep;

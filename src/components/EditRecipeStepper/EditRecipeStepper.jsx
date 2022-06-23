@@ -5,8 +5,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EditRecipeOverviewStep from './EditRecipeOverviewStep/EditRecipeOverviewStep';
-import RecipeIngredientsStep from './RecipeIngredientsStep/RecipeIngredientsStep';
-import RecipeImplementationStep from './RecipeImplementationStep/RecipeImplementationStep';
+import EditRecipeIngredientsStep from './EditRecipeIngredientsStep/EditRecipeIngredientsStep';
+import EditRecipeImplementationStep from './EditRecipeImplementationStep/EditRecipeImplementationStep';
 import AllergensListStep from './AllergensListStep/AllergensListStep';
 
 export const AccordionSx = {
@@ -40,7 +40,7 @@ const EditRecipeStepper = () => (
         <Typography>Add ingredients</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <RecipeIngredientsStep />
+        <EditRecipeIngredientsStep />
       </AccordionDetails>
     </Accordion>
     <Accordion square sx={AccordionSx} elevation={0}>
@@ -52,7 +52,7 @@ const EditRecipeStepper = () => (
         <Typography>Add recipe steps</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <RecipeImplementationStep />
+        <EditRecipeImplementationStep />
       </AccordionDetails>
     </Accordion>
     <Accordion square sx={AccordionSx} elevation={0}>

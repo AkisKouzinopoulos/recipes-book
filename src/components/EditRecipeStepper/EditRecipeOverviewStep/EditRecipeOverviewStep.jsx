@@ -36,6 +36,7 @@ const EditRecipeOverviewStep = () => {
         preparationTime: recipeDetailsData?.preparationTime,
         imgUrl: recipeDetailsData?.imgUrl,
       });
+      dispatch({ type: 'UPDATE_NEW_RECIPE', payload: recipeDetailsData }); //  Fill the temp newRecipe with the recipe's data
     };
     getRecipeDetails();
   }, [dispatch, id]);

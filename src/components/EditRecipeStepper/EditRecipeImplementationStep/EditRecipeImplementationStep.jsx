@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
@@ -7,10 +7,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
-const RecipeImplementationStep = () => {
+const EditRecipeImplementationStep = () => {
   const [steps, setSteps] = useState(['']);
 
-  const { dispatch } = useContext(RecipesContext);
+  const { newRecipe, dispatch } = useContext(RecipesContext);
+
+  useEffect(() => {
+    dispatch({ type: 'SET_LOADING' });
+    setSteps(newRecipe?.steps);
+  }, [dispatch, newRecipe?.steps]);
 
   const handleChange = (i, e) => {
     const { value } = e.target;
@@ -45,7 +50,7 @@ const RecipeImplementationStep = () => {
 
   return (
     <>
-      {steps.map((element, index) => (
+      {steps?.map((element, index) => (
         <Stack
           direction="row"
           spacing={2}
@@ -76,4 +81,4 @@ const RecipeImplementationStep = () => {
   );
 };
 
-export default RecipeImplementationStep;
+export default EditRecipeImplementationStep;
