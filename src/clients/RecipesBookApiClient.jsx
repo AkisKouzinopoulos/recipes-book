@@ -38,6 +38,13 @@ const RecipesBookApiClient = {
 
     return data;
   },
+  deleteRecipe: async id => {
+    const { data } = await axios.delete(`/recipes/${id}`, {
+      method: 'DELETE',
+      headers: HEADERS,
+    });
+    return data;
+  },
   login: async formData => {
     const { data } = await axios.post(`/login`, formData, {
       method: 'POST',

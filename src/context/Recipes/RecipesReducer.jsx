@@ -1,4 +1,4 @@
-import { addNewRecipe, editRecipe } from './RecipesActions';
+import { addNewRecipe, editRecipe, deleteRecipe } from './RecipesActions';
 
 export const recipesReducer = (state, action) => {
   switch (action.type) {
@@ -24,6 +24,15 @@ export const recipesReducer = (state, action) => {
       return {
         ...state,
         recipes: [...state.recipes, editRecipe(state.newRecipe)],
+        isLoading: false,
+      };
+    case 'DELETE_RECIPE':
+      return {
+        ...state,
+        recipes: [
+          ...state.recipes.filter(recipe => recipe.id !== action.payload),
+          deleteRecipe(action.payload),
+        ],
         isLoading: false,
       };
     case 'UPDATE_NEW_RECIPE':

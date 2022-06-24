@@ -100,8 +100,11 @@ export const RecipeIngredientsList = styled(Typography)`
   }
 `;
 
-export const EditRecipeBtn = styled(Button)`
+export const EditRecipeBtnContainer = styled('div')`
   position: absolute;
   bottom: 0;
   right: 0;
+  button {
+    color: #2a2a2a;
+  }
 `;
