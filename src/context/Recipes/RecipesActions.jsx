@@ -1,13 +1,13 @@
 import RecipesBookApiClient from '../../clients/RecipesBookApiClient';
 
 export const fetchRecipes = async () => {
-  const storesData = await RecipesBookApiClient.getRecipes()
+  const recipesData = await RecipesBookApiClient.getRecipes()
     .then(response => response)
     .catch(() => {
       // setError(true);
     });
 
-  return storesData;
+  return recipesData;
 };
 
 export const fetchRecipeDetails = async id => {
@@ -38,4 +38,14 @@ export const editRecipe = async recipe => {
     });
 
   return recipeData;
+};
+
+export const deleteRecipe = async id => {
+  const recipesData = await RecipesBookApiClient.deleteRecipe(id)
+    .then(response => response)
+    .catch(() => {
+      // setError(true);
+    });
+
+  return recipesData;
 };

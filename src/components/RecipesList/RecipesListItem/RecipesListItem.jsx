@@ -1,9 +1,12 @@
-import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import EditIcon from '@mui/icons-material/Edit';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 import IngredientsList from '../../IngredientsList/IngredientsList';
 import AllergensList from '../../AllergensList/AllergensList';
 import { RECIPE_PAGE, EDIT_RECIPE_PAGE } from '../../../pages/Paths';
@@ -17,13 +20,16 @@ import {
   RecipeImgContainer,
   RecipeIngredients,
   RecipeLink,
-  EditRecipeBtn,
+  EditRecipeBtnContainer,
 } from './RecipesListItem.styles';
+import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 
 const RecipesListItem = ({ recipe }) => {
   const navigate = useNavigate();
   const { id, title, imgUrl, description, totalSteps, difficulty, ingredients, allergens } = recipe;
   const userIsLoggedIn = localStorage.getItem('username');
+
+  const { dispatch } = useContext(RecipesContext);
 
   return (
     <Grid item xs={12}>
@@ -69,7 +75,7 @@ const RecipesListItem = ({ recipe }) => {
             alignItems="flex-start"
           >
             <DifficultyLabel variant="h3">{difficulty}</DifficultyLabel>
-            <RecipeLink to={`${RECIPE_PAGE}${recipe.id}`}>
+            <RecipeLink to={`${RECIPE_PAGE}${id}`}>
               <Typography variant="h2">{title}</Typography>
             </RecipeLink>
             <RecipeMadeInSteps variant="h4">
@@ -85,7 +91,7 @@ const RecipesListItem = ({ recipe }) => {
               {description}
             </RecipeDescription>
             <RecipeReadMore variant="body1">
-              <RecipeLink to={`${RECIPE_PAGE}${recipe.id}`}>
+              <RecipeLink to={`${RECIPE_PAGE}${id}`}>
                 READ <span>MORE</span>
               </RecipeLink>
             </RecipeReadMore>
@@ -105,13 +111,22 @@ const RecipesListItem = ({ recipe }) => {
           </RecipeIngredients>
         </Grid>
         {userIsLoggedIn && (
-          <EditRecipeBtn
-            variant="outlined"
-            startIcon={<EditIcon />}
-            onClick={() => navigate(`${EDIT_RECIPE_PAGE}${id}`)}
-          >
-            Edit recipe
-          </EditRecipeBtn>
+          <EditRecipeBtnContainer>
+            <Button
+              variant="outlined"
+              startIcon={<EditIcon />}
+              onClick={() => navigate(`${EDIT_RECIPE_PAGE}${id}`)}
+            >
+              Edit recipe
+            </Button>
+            <IconButton
+              aria-label="delete"
+              size="large"
+              onClick={() => dispatch({ type: 'DELETE_RECIPE', payload: id })}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </EditRecipeBtnContainer>
         )}
       </RecipeContainer>
     </Grid>
