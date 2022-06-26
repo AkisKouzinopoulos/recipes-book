@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 
 const RecipeImplementationStepForm = ({ steps, handleChange, addFormFields, removeFormFields }) => (
   <>
-    {steps.map((element, index) => (
+    {steps?.map((element, index) => (
       <Stack
         direction="row"
         spacing={2}
