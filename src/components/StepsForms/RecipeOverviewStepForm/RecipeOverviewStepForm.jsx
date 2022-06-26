@@ -5,7 +5,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import RecipeRating from '../../../RecipeRating/RecipeRating';
+import RecipeRating from '../../RecipeRating/RecipeRating';
 
 const RecipeOverviewStepForm = ({ handleInputChange, overview }) => (
   <Stack direction="column" spacing={2}>

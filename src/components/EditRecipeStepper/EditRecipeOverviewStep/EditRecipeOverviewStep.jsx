@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
 import { fetchRecipeDetails } from '../../../context/Recipes/RecipesActions';
-import RecipeOverviewStepForm from '../../RecipeStepper/RecipeOverviewStep/RecipeOverviewStepForm/RecipeOverviewStepForm';
+import RecipeOverviewStepForm from '../../StepsForms/RecipeOverviewStepForm/RecipeOverviewStepForm';
 
 const EditRecipeOverviewStep = () => {
   const { id } = useParams();

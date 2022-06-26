@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useContext } from 'react';
 import { RecipesContext } from '../../../context/Recipes/RecipesContext';
-import RecipeOverviewStepForm from './RecipeOverviewStepForm/RecipeOverviewStepForm';
+import RecipeOverviewStepForm from '../../StepsForms/RecipeOverviewStepForm/RecipeOverviewStepForm';
 
 const RecipeOverviewStep = () => {
   const initialOverview = {
