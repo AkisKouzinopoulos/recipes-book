@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, screen } from '@testing-library/react';
+import { render, cleanup, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { createMemoryHistory } from 'history';
@@ -8,6 +8,7 @@ import { RECIPES_LIST_PAGE } from '../../pages/Paths';
 
 describe('testing the AppHeader component', () => {
   afterEach(cleanup);
+
   const history = createMemoryHistory();
 
   it('renders correctly', () => {
@@ -25,5 +26,17 @@ describe('testing the AppHeader component', () => {
 
     const searchInput = screen.getByRole('textbox', { name: /search/i });
     expect(searchInput).toBeTruthy();
+  });
+
+  it('search renders', () => {
+    render(<AppHeader />, { wrapper: Router });
+    const searchField = screen.getByTestId('searchField');
+    expect(searchField).toBeInTheDocument();
+  });
+
+  it('search field initialy is empty', () => {
+    render(<AppHeader />, { wrapper: Router });
+    const searchFieldInput = screen.getByTestId('searchField');
+    expect(searchFieldInput).toHaveTextContent('');
   });
 });

@@ -77,8 +77,8 @@ const AppHeader = () => {
                   </SearchIconWrapper>
                   <StyledInputBase
                     onChange={searchRecipe}
-                    placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }}
+                    placeholder="Search"
+                    inputProps={{ 'aria-label': 'search', 'data-testid': 'searchField' }}
                   />
                 </Search>
               )}
