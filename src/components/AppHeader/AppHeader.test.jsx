@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, screen, fireEvent } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { createMemoryHistory } from 'history';
@@ -8,7 +8,6 @@ import { RECIPES_LIST_PAGE } from '../../pages/Paths';
 
 describe('testing the AppHeader component', () => {
   afterEach(cleanup);
-
   const history = createMemoryHistory();
 
   it('renders correctly', () => {
