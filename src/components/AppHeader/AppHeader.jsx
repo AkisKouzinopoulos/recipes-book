@@ -3,27 +3,20 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
-import SearchIcon from '@mui/icons-material/Search';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Typography from '@mui/material/Typography';
 import FaceIcon from '@mui/icons-material/Face';
 import SiteLogo from '../SiteLogo/SiteLogo';
+import SearchField from '../SearchField/SearchField';
 import WelcomeUser from '../WelcomeUser/WelcomeUser';
 import { RECIPES_LIST_PAGE, ADD_RECIPE_PAGE, AUTHENTICATE } from '../../pages/Paths';
 import { SearchContext } from '../../context/Search/SearchContext';
-import {
-  AppBarStyled,
-  Search,
-  SearchIconWrapper,
-  StyledInputBase,
-  AddNewRecipeBtn,
-  LoginBtn,
-} from './AppHeader.styles';
+import { AppBarStyled, AddNewRecipeBtn, LoginBtn } from './AppHeader.styles';
 
 const AppHeader = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { updateSearchQuery } = useContext(SearchContext);
+  const { updateSearchQuery, search } = useContext(SearchContext);
 
   const logedinUsername = localStorage.getItem('username');
 
@@ -71,16 +64,7 @@ const AppHeader = () => {
               lg={3}
             >
               {location.pathname === RECIPES_LIST_PAGE && (
-                <Search>
-                  <SearchIconWrapper>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase
-                    onChange={searchRecipe}
-                    placeholder="Search"
-                    inputProps={{ 'aria-label': 'search', 'data-testid': 'searchField' }}
-                  />
-                </Search>
+                <SearchField searchRecipe={searchRecipe} value={search} />
               )}
             </Grid>
             <Grid
