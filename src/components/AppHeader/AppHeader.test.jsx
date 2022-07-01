@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, cleanup, screen } from '@testing-library/react';
+import { userEvent, fireEvent } from '@testing-library/user-event';
 import { BrowserRouter as Router } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { createMemoryHistory } from 'history';

@@ -1,38 +1,19 @@
 import React from 'react';
-import TextField from '@mui/material/TextField';
-import styled from '@emotion/styled';
 import SearchIcon from '@mui/icons-material/Search';
-import InputAdornment from '@mui/material/InputAdornment';
+import { Search, SearchIconWrapper, StyledInputBase } from './SearchField.styles';
 
-const StyledTextField = styled(TextField)`
-  background-color: var(--white);
-  border-radius: 5px;
-  &.MuiFormControl-root {
-    border: none;
-    & div {
-      height: 30px;
-      padding-left: 3px;
-    }
-  }
-`;
-
-const StyledSearchIcon = styled(SearchIcon)`
-  fill: var(--black);
-`;
-
-const SearchField = ({ handleSearch }) => (
-  <StyledTextField
-    onChange={handleSearch}
-    placeholder="Search"
-    size="small"
-    InputProps={{
-      startAdornment: (
-        <InputAdornment position="start">
-          <StyledSearchIcon />
-        </InputAdornment>
-      ),
-    }}
-  />
+const SearchField = ({ searchRecipe, value }) => (
+  <Search>
+    <SearchIconWrapper>
+      <SearchIcon />
+    </SearchIconWrapper>
+    <StyledInputBase
+      onChange={searchRecipe}
+      placeholder="Search"
+      inputProps={{ 'aria-label': 'search', 'data-testid': 'searchField' }}
+      value={value}
+    />
+  </Search>
 );
 
 export default SearchField;
